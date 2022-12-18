@@ -74,6 +74,14 @@
 ## Narzędzia / Knowledge dump    
   - mocking framework for C# [link](https://www.telerik.com/products/mocking.aspx)
   - tree view [link](https://learn.microsoft.com/pl-pl/dotnet/desktop/wpf/controls/treeview-overview?view=netframeworkdesktop-4.8)
+  - schemat repo (powiedzcie mi czy to głupie czy nie):
+    - main branch,
+    - staging branch,
+    - brache imienne,
+    - workflow:
+      - checkout zawsze z main,
+      - push zawsze na staging,
+      - ze stagingu na main, tylko gdy testy zaakceptowane
 
 # Następne spotkanie: środa 21.12.2022 19:30
 
