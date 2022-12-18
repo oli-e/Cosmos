@@ -44,7 +44,7 @@
 
 # 18.12.2022
 
-## Podział zadanek
+## Podział zadanek (research phase)
 
 ### Przemek:
 
