@@ -40,3 +40,41 @@
   - tutorial/objaśnienie funkcjonalności:
     - technicznie: który plik jest wejściem?
     - jak się posługiwać -> instrukcja
+
+
+# 18.12.2022
+
+## Podział zadanek
+
+### Przemek:
+
+  - zapis danych, format danych,
+  - przesył danych do warstwy frontu (schemat, implementacja do sprawdzenia)
+  
+### Olena:
+
+  - rozrysować interfejs (sprawdzić dostępność narzędzi i bibliotek)
+  - zewnętrzne narzędzia do tworzenia interfejsów (nie zapamietałem dokładnie ale bylo powiedziane, że istnieje [Web Based])
+  - sprawdzić w czym się będzie najlepiej pisało testy (MUnit vs. Selenium) (DEMO)
+ 
+### Wojtek  
+ 
+  - dynamiczne tworzenie obiektów interfejsu (DEMO)
+  - sprawidzć jak to przemyśleć architektonicznie [MVC](https://dotnet.microsoft.com/en-us/apps/aspnet/mvc) vs. [MVVM](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm)
+  - sprawdzić w czym się będzie najlepiej pisało testy (MUnit vs. Selenium) (DEMO)
+  
+## Dyskusja:
+
+  - widoki:
+    - główny,
+    - szczegółowy,
+    - edytuj,
+    - dodaj element
+    
+## Narzędzia / Knowledge dump    
+  - mocking framework for C# [link](https://www.telerik.com/products/mocking.aspx)
+  - tree view [link](https://learn.microsoft.com/pl-pl/dotnet/desktop/wpf/controls/treeview-overview?view=netframeworkdesktop-4.8)
+
+# Następne spotkanie: środa 19:30
+
+### Przezroczysty czajnik w tle
