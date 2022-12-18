@@ -75,6 +75,6 @@
   - mocking framework for C# [link](https://www.telerik.com/products/mocking.aspx)
   - tree view [link](https://learn.microsoft.com/pl-pl/dotnet/desktop/wpf/controls/treeview-overview?view=netframeworkdesktop-4.8)
 
-# Następne spotkanie: środa 19:30
+# Następne spotkanie: środa 21.12.2022 19:30
 
 ### Przezroczysty czajnik w tle
