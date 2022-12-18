@@ -50,6 +50,7 @@
 
   - zapis danych, format danych,
   - przesył danych do warstwy frontu (schemat, implementacja do sprawdzenia)
+  - Fasadkę na DB ops
   
 ### Olena:
 
@@ -57,7 +58,7 @@
   - zewnętrzne narzędzia do tworzenia interfejsów (nie zapamietałem dokładnie ale bylo powiedziane, że istnieje [Web Based])
   - sprawdzić w czym się będzie najlepiej pisało testy (MUnit vs. Selenium) (DEMO)
  
-### Wojtek  
+### Wojtek:  
  
   - dynamiczne tworzenie obiektów interfejsu (DEMO)
   - sprawidzć jak to przemyśleć architektonicznie [MVC](https://dotnet.microsoft.com/en-us/apps/aspnet/mvc) vs. [MVVM](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm)
