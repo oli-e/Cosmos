@@ -12,6 +12,11 @@ namespace Cosmos
 
         public Unit Unit { get; }
 
+        public static UnitValue<T> Of(T value, Unit unit)
+        {
+            return new UnitValue<T>(value, unit);
+        }
+
         public UnitValue(T value, Unit unit)
         {
             Value = value;

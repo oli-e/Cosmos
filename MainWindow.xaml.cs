@@ -21,6 +21,7 @@ namespace Cosmos
     {
 
         private DatabaseService databaseService = new DatabaseService();
+        private DataGenerator dataGenerator = new DataGenerator();
 
         public MainWindow()
         {
@@ -29,24 +30,12 @@ namespace Cosmos
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Planet earth = new Planet(
-                "Earth",
-                new UnitValue<long>(100, Unit.KM),
-                new UnitValue<double>(0.1, Unit.SUN_MASS),
-                new UnitValue<long>(0, Unit.KM));
-            Moon moon = new Moon(
-                "Moon",
-                new UnitValue<long>(100, Unit.KM),
-                new UnitValue<double>(0.1, Unit.SUN_MASS),
-                new UnitValue<long>(0, Unit.KM),
-                new UnitValue<long>(400, Unit.KM)
-                );
-            earth.AddMoon(moon);
+            Galaxy galaxy = dataGenerator.GenerateGalaxy();
 
-            databaseService.SavePlanet(earth);
+            databaseService.SaveGalaxy(galaxy);
             databaseService.SaveToFile();
 
-            List<Planet> planets = databaseService.LoadFromFile();
+            List<Galaxy> galaxies = databaseService.LoadFromFile();
 
             MessageBox.Show("Ok");
         }

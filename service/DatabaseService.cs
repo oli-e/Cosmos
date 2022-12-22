@@ -11,24 +11,24 @@ namespace Cosmos
 {
     public class DatabaseService
     {
-        public List<Planet> planets = new List<Planet>();
+        public List<Galaxy> galaxies = new List<Galaxy>();
 
-        public void SavePlanet(Planet planet)
+        public void SaveGalaxy(Galaxy planet)
         {
-            planets.Add(planet);
+            galaxies.Add(planet);
         }
 
         public void SaveToFile()
         {
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonData = JsonSerializer.Serialize(planets, options);
-            File.WriteAllText("data.txt", jsonData);
+            string jsonData = JsonSerializer.Serialize(galaxies, options);
+            File.WriteAllText("data.json", jsonData);
         }
 
-        public List<Planet> LoadFromFile()
+        public List<Galaxy> LoadFromFile()
         {
-            string data = File.ReadAllText("data.txt");
-            List<Planet> loadedData = JsonSerializer.Deserialize<List<Planet>>(data);
+            string data = File.ReadAllText("data.json");
+            List<Galaxy> loadedData = JsonSerializer.Deserialize<List<Galaxy>>(data);
             return loadedData;
         }
 

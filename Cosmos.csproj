@@ -83,6 +83,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="model\abstract\NamedObject.cs" />
+    <Compile Include="model\Galaxy.cs" />
+    <Compile Include="model\Star.cs" />
+    <Compile Include="model\PlanetarySystem.cs" />
+    <Compile Include="service\DataGenerator.cs" />
     <Compile Include="service\DatabaseService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,7 +97,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="model\AstronomicalObject.cs" />
+    <Compile Include="model\abstract\AstronomicalObject.cs" />
     <Compile Include="model\Moon.cs" />
     <Compile Include="model\Planet.cs" />
     <Compile Include="model\data\Unit.cs" />
