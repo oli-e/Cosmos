@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public enum Unit
+    public enum StarType
     {
-        SUN_MASS,
-        KM,
-        MAGNITUDE
+        SOLAR,
+        HOT_BLUE,
+        RED_DWARF,
+        RED_GIANT,
+        WHITE_DWARF,
+        NEUTRON,
+        BLACK_HOLE
     }
 }

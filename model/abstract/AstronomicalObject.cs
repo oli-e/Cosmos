@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public abstract class AstronomicalObject : NamedObject
+    public abstract class AstronomicalObject : BasicAstronomicalObject
     {
-        protected AstronomicalObject(string name, UnitValue<long> size, UnitValue<double> mass, UnitValue<long> distanceFromEarth) : base(name)
-        {
-            Size = size;
-            Mass = mass;
-            DistanceFromEarth = distanceFromEarth;
-        }
 
-        public UnitValue<long> Size { get; set; }
         public UnitValue<double> Mass { get; set; }
-        public UnitValue<long> DistanceFromEarth { get; set; }
+
+        protected AstronomicalObject(
+            string name,
+            UnitValue<long> size,
+            UnitValue<double> mass,
+            UnitValue<long> distanceFromEarth,
+            UnitValue<double> apparentMagnitude,
+            Declination declination,
+            RightAscension rightAscension) : base(name, size, distanceFromEarth, apparentMagnitude, declination, rightAscension)
+        {
+            Mass = mass;
+        }
     }
 }

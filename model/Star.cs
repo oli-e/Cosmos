@@ -9,10 +9,19 @@ namespace Cosmos
     public class Star : AstronomicalObject
     {
         public List<PlanetarySystem> PlanetarySystems { get; set; } = new List<PlanetarySystem>();
+        public StarType Type { get; set; }
 
-        public Star(string name, UnitValue<long> size, UnitValue<double> mass, UnitValue<long> distanceFromEarth) : base(name, size, mass, distanceFromEarth)
+        public Star(
+            string name,
+            UnitValue<long> size,
+            UnitValue<double> mass,
+            UnitValue<long> distanceFromEarth,
+            UnitValue<double> apparentMagnitude,
+            Declination declination,
+            RightAscension rightAscension,
+            StarType type) : base(name, size, mass, distanceFromEarth, apparentMagnitude, declination, rightAscension)
         {
-
+            Type = type;
         }
 
         public void AddPlanetarySystem(PlanetarySystem planetarySystem)

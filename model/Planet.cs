@@ -10,7 +10,14 @@ namespace Cosmos
     {
         public List<Moon> Moons { get; set; } = new List<Moon>();
 
-        public Planet(string name, UnitValue<long> size, UnitValue<double> mass, UnitValue<long> distanceFromEarth) : base(name, size, mass, distanceFromEarth)
+        public Planet(
+            string name,
+            UnitValue<long> size,
+            UnitValue<double> mass,
+            UnitValue<long> distanceFromEarth,
+            UnitValue<double> apparentMagnitude,
+            Declination declination,
+            RightAscension rightAscension) : base(name, size, mass, distanceFromEarth, apparentMagnitude, declination, rightAscension)
         {
 
         }
@@ -23,11 +30,6 @@ namespace Cosmos
         public List<Moon> GetMoons()
         {
             return Moons;
-        }
-
-        public string Print()
-        {
-            return "I have " + Moons.Count() + " moons";
         }
     }
 }

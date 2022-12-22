@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public enum Unit
+    public enum GalaxyType
     {
-        SUN_MASS,
-        KM,
-        MAGNITUDE
+        SPRIAL,
+        ELLIPTICAL,
+        PECULIAR,
+        IRREGULAR
     }
 }
