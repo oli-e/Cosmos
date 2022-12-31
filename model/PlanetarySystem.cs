@@ -21,6 +21,11 @@ namespace Cosmos
 
         }
 
+        public Planet GetPlanet(long id)
+        {
+            return FindPlanetById(id);
+        }
+
         public void AddPlanet(Planet planet)
         {
             Planets.Add(planet);
@@ -29,6 +34,16 @@ namespace Cosmos
         public List<Planet> GetPlanets()
         {
             return Planets;
+        }
+
+        public void RemovePlanet(long id)
+        {
+            Planets.Remove(FindPlanetById(id));
+        }
+
+        private Planet FindPlanetById(long id)
+        {
+            return Planets.Find(p => p.Id == id);
         }
     }
 }

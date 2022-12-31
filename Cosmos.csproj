@@ -84,16 +84,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="model\abstract\AstronomicalObject.cs" />
+    <Compile Include="model\abstract\IdentifableObject.cs" />
     <Compile Include="model\abstract\NamedObject.cs" />
     <Compile Include="model\data\RightAscension.cs" />
     <Compile Include="model\data\Declination.cs" />
-    <Compile Include="model\data\StarType.cs" />
-    <Compile Include="model\data\GalaxyType.cs" />
+    <Compile Include="model\data\Type.cs" />
     <Compile Include="model\Galaxy.cs" />
     <Compile Include="model\Star.cs" />
     <Compile Include="model\PlanetarySystem.cs" />
+    <Compile Include="service\GlobalIdentificatorProvider.cs" />
+    <Compile Include="service\DataFileSaver.cs" />
     <Compile Include="service\DataGenerator.cs" />
-    <Compile Include="service\DatabaseService.cs" />
+    <Compile Include="dao\GalaxyDao.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

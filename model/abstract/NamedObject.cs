@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public abstract class NamedObject
+    public abstract class NamedObject : IdentifableObject
     {
         protected NamedObject(string name)
         {

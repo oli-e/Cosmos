@@ -23,6 +23,11 @@ namespace Cosmos
             Type = type;
         }
 
+        public Star GetStar(long id)
+        {
+            return FindStarById(id);
+        }
+
         public void AddStar(Star star)
         {
             Stars.Add(star);
@@ -31,6 +36,16 @@ namespace Cosmos
         public List<Star> GetStars()
         {
             return Stars;
+        }
+
+        public void RemoveStar(long id)
+        {
+            Stars.Remove(FindStarById(id));
+        }
+
+        private Star FindStarById(long id)
+        {
+            return Stars.Find(s => s.Id == id);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Cosmos
                 UnitValue<double>.Of(1, Unit.MAGNITUDE),
                 new Declination(10, 5, 1),
                 new RightAscension(5, 3, 12),
-                GalaxyType.SPRIAL);
+                GalaxyType.SPIRAL);
             Star sun = new Star(
                 "Sun",
                 UnitValue<long>.Of(130_000, Unit.KM),

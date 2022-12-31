@@ -8,9 +8,20 @@ namespace Cosmos
 {
     public enum GalaxyType
     {
-        SPRIAL,
+        SPIRAL,
         ELLIPTICAL,
         PECULIAR,
         IRREGULAR
+    }
+
+    public enum StarType
+    {
+        SOLAR,
+        HOT_BLUE,
+        RED_DWARF,
+        RED_GIANT,
+        WHITE_DWARF,
+        NEUTRON,
+        BLACK_HOLE
     }
 }

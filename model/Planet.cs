@@ -21,6 +21,10 @@ namespace Cosmos
         {
 
         }
+        public Moon GetMoon(long id)
+        {
+            return FindMoonById(id);
+        }
 
         public void AddMoon(Moon moon)
         {
@@ -30,6 +34,16 @@ namespace Cosmos
         public List<Moon> GetMoons()
         {
             return Moons;
+        }
+
+        public void RemoveMoon(long id)
+        {
+            Moons.Remove(FindMoonById(id));
+        }
+
+        private Moon FindMoonById(long id)
+        {
+            return Moons.Find(m => m.Id == id);
         }
     }
 }

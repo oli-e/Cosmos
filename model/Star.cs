@@ -24,6 +24,11 @@ namespace Cosmos
             Type = type;
         }
 
+        public PlanetarySystem GetPlanetarySystem(long id)
+        {
+            return FindPlanetarySystemById(id);
+        }
+
         public void AddPlanetarySystem(PlanetarySystem planetarySystem)
         {
             PlanetarySystems.Add(planetarySystem);
@@ -32,6 +37,15 @@ namespace Cosmos
         public List<PlanetarySystem> GetPlanetarySystems()
         {
             return PlanetarySystems;
+        }
+        public void RemovePlanetarySystem(long id)
+        {
+            PlanetarySystems.Remove(FindPlanetarySystemById(id));
+        }
+
+        private PlanetarySystem FindPlanetarySystemById(long id)
+        {
+            return PlanetarySystems.Find(ps => ps.Id == id);
         }
     }
 }
