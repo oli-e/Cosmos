@@ -13,6 +13,9 @@ namespace Cosmos
     {
         public void SaveToFile<T>(T obj, string name)
         {
+            //Disabled temporairly
+            return;
+
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonData = JsonSerializer.Serialize(obj, options);
             File.WriteAllText(name + ".json", jsonData);
@@ -20,6 +23,9 @@ namespace Cosmos
 
         public void SaveAllToFile<T>(List<T> objects, string name)
         {
+            //Disabled temporairly
+            return;
+
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
@@ -30,6 +36,9 @@ namespace Cosmos
 
         public List<T> LoadAllFromFile<T>(string name)
         {
+            //Disabled temporairly
+            return new List<T>();
+
             string data = File.ReadAllText(name + ".json");
             List<T> loadedData = JsonSerializer.Deserialize<List<T>>(data);
             return loadedData;
@@ -37,6 +46,9 @@ namespace Cosmos
 
         public T LoadFromFile<T>(string name)
         {
+            //Disabled temporairly
+            return default(T);
+
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
