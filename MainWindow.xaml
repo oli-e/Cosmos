@@ -22,7 +22,13 @@
 
         <!-- Temporary Navigation, to be swapped with TreeView -->
         <Grid Grid.Column="0">
-            <views:SimpleNavigation/>
+            <ContentControl Content="{Binding SimpleNavigationViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:SimpleNavigationViewModel}">
+                        <views:SimpleNavigation/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
         </Grid>
 
         <!-- Switch instruction for particular viewmodels and views -->

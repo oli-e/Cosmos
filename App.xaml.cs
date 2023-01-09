@@ -1,4 +1,6 @@
-﻿using Cosmos.ViewModels;
+﻿using Cosmos.Stores;
+using Cosmos.ViewModels;
+using Cosmos.ViewModels.SpecificViewModels.PlanetViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,9 +18,14 @@ namespace Cosmos
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            NavigationStore navigationStore = new NavigationStore();
+
+            navigationStore.CurrentViewModel = new PlanetUserControlViewModel();
+
             MainWindow = new MainWindow()
             {
-                DataContext = new MainWindowViewModel()
+                
+                DataContext = new MainWindowViewModel(navigationStore)
             };
             MainWindow.Show();
             base.OnStartup(e);

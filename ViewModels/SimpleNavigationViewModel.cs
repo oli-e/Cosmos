@@ -19,8 +19,8 @@ namespace Cosmos.ViewModels
 
         public SimpleNavigationViewModel(NavigationStore navigationStore)
         {
-            GoToPlanet = new NavigationCommand<PlanetUserControlViewModel>(navigationStore, () => new PlanetUserControlViewModel());
-            GoToMoon = new NavigationCommand<MoonUserControlViewModel>(navigationStore, () => new MoonUserControlViewModel());
+            GoToPlanet = new NavigatePlanet(navigationStore);
+            GoToMoon = new NavigateMoon(navigationStore);
         }
     }
 }
