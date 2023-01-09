@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigationCommand.cs" />
     <Compile Include="Model\model\abstract\AstronomicalObject.cs" />
     <Compile Include="Model\model\abstract\IdentifableObject.cs" />
     <Compile Include="Model\model\abstract\NamedObject.cs" />
@@ -97,23 +98,33 @@
     <Compile Include="Model\service\DataFileSaver.cs" />
     <Compile Include="Model\service\DataGenerator.cs" />
     <Compile Include="Model\dao\GalaxyDao.cs" />
-    <Compile Include="Stores\SingleItemViewNavigationStore.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="ViewModels\EditViewModels\PlanetEditViewModel.cs" />
+    <Compile Include="ViewModels\SimpleNavigationViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\AstronomicalObjectViewMiodels\AstronomicalObjectObjectViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\AstronomicalObjectViewMiodels\AstronomicalObjectUserControlViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\BasicAstronomicalObjectViewModels\BasicAstronomicalObjectViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\SingleItemViewViewModel.cs" />
+    <Compile Include="ViewModels\SpecificViewModels\BasicAstronomicalObjectViewModels\BasicAstronomicalUserControlViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\GalaxyViewModels\GalaxyObjectViewModel.cs" />
+    <Compile Include="ViewModels\SpecificViewModels\GalaxyViewModels\GalaxyUserControlViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\MoonViewModels\MoonObjectViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\MoonViewModels\MoonUserControlViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\PlanetViewModels\PlanetObjectViewModel.cs" />
     <Compile Include="ViewModels\SpecificViewModels\PlanetViewModels\PlanetUserControlViewModel.cs" />
+    <Compile Include="Views\EditSpecificObjectView\EditPlanetUserControl.xaml.cs">
+      <DependentUpon>EditPlanetUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SimpleNavigation.xaml.cs">
       <DependentUpon>SimpleNavigation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SingleItemView.xaml.cs">
-      <DependentUpon>SingleItemView.xaml</DependentUpon>
+    <Compile Include="Views\SpecificObjectView\BasicAstronomicalObjectUserControl.xaml.cs">
+      <DependentUpon>BasicAstronomicalObjectUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectView\GalaxyUserControl.xaml.cs">
+      <DependentUpon>GalaxyUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SpecificObjectView\MoonUserControl.xaml.cs">
       <DependentUpon>MoonUserControl.xaml</DependentUpon>
@@ -141,11 +152,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EditSpecificObjectView\EditPlanetUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SimpleNavigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SingleItemView.xaml">
+    <Page Include="Views\SpecificObjectView\BasicAstronomicalObjectUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectView\GalaxyUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,8 +208,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

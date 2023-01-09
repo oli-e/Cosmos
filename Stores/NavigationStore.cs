@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Stores
 {
-    public class SingleItemViewNavigationStore
+    public class NavigationStore
     {
         private BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel

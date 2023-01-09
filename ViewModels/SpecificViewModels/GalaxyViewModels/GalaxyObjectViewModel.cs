@@ -10,11 +10,11 @@ namespace Cosmos.ViewModels.SpecificViewModels.GalaxyViewModels
     {
         private readonly Galaxy _galaxy;
         public string Name => _galaxy.Name;
-        public string Size => _galaxy.Size?.ToString();
-        public string DistanceFromEarth => _galaxy?.DistanceFromEarth.ToString();
-        public string ApparentMagnitude => _galaxy?.ApparentMagnitude.ToString();
-        public string Declination => _galaxy?.Declination.ToString();
-        public string RightAscension => _galaxy?.RightAscension.ToString();
+        public string Size => _galaxy.Size.Get().ToString();
+        public string DistanceFromEarth => _galaxy?.DistanceFromEarth.Get().ToString();
+        public string ApparentMagnitude => _galaxy?.ApparentMagnitude.Get().ToString();
+        public string Declination => _galaxy?.Declination.Degress.ToString();
+        public string RightAscension => _galaxy?.RightAscension.Hours.ToString();
 
         //Add handler for list
         public List<Star> children => _galaxy.GetStars();

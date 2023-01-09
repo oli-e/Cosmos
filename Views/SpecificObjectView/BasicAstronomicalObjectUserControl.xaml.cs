@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cosmos.Views
+namespace Cosmos.Views.SpecificObjectView
 {
     /// <summary>
-    /// Interaction logic for SingleItemView.xaml
+    /// Interaction logic for BasicAstronomicalObjectUserControl.xaml
     /// </summary>
-    public partial class SingleItemView : UserControl
+    public partial class BasicAstronomicalObjectUserControl : UserControl
     {
-        public SingleItemView()
+        public BasicAstronomicalObjectUserControl()
         {
             InitializeComponent();
         }

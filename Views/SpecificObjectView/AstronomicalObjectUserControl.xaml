@@ -7,9 +7,6 @@
              xmlns:moonviewmodels="clr-namespace:Cosmos.ViewModels.SpecificViewModels.MoonViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <moonviewmodels:MoonUserControlViewModel/>
-    </UserControl.DataContext>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -36,7 +33,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.Name}"
+                Text="{Binding Object.Name}"
             />
             </Grid>
 
@@ -53,7 +50,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.Size}"
+                Text="{Binding Object.Size}"
             />
             </Grid>
 
@@ -70,7 +67,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.Mass}"
+                Text="{Binding Object.Mass}"
             />
             </Grid>
 
@@ -87,7 +84,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.DistanceFromEarth}"
+                Text="{Binding Object.DistanceFromEarth}"
             />
             </Grid>
 
@@ -104,7 +101,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.ApparentMagnitude}"
+                Text="{Binding Object.ApparentMagnitude}"
             />
             </Grid>
             <Grid Grid.Row="5">
@@ -120,7 +117,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.Declination}"
+                Text="{Binding Object.Declination}"
             />
             </Grid>
 
@@ -137,7 +134,7 @@
 
                 <TextBlock
                 Grid.Column="1"
-                Text="{Binding Moon.RightAscension}"
+                Text="{Binding Object.RightAscension}"
             />
             </Grid>
         

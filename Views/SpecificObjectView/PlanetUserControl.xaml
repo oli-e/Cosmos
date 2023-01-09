@@ -7,9 +7,6 @@
              xmlns:planetviewmodels="clr-namespace:Cosmos.ViewModels.SpecificViewModels.PlanetViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <planetviewmodels:PlanetUserControlViewModel/>
-    </UserControl.DataContext>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

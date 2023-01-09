@@ -37,5 +37,10 @@ namespace Cosmos
         {
             return Unit;
         }
+
+        internal static UnitValue<long> Of(string value, Unit kM)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

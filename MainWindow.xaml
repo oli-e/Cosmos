@@ -5,11 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cosmos" 
         xmlns:views="clr-namespace:Cosmos.Views"
+        xmlns:viewmodels="clr-namespace:Cosmos.ViewModels" 
+        xmlns:specificobjectviews="clr-namespace:Cosmos.Views.SpecificObjectView"
+        xmlns:editviews="clr-namespace:Cosmos.Views.EditSpecificObjectView"
+        xmlns:moonviewmodels="clr-namespace:Cosmos.ViewModels.SpecificViewModels.MoonViewModels"
+        xmlns:planetviewmodels="clr-namespace:Cosmos.ViewModels.SpecificViewModels.PlanetViewModels"
+        xmlns:galaxyviewmodels="clr-namespace:Cosmos.ViewModels.SpecificViewModels.GalaxyViewModels"
+        xmlns:editviewmodels="clr-namespace:Cosmos.ViewModels.EditViewModels"
         mc:Ignorable="d"
         Title="MainWindow">
     <Grid>
-		<!--<Button Content="Click me" HorizontalAlignment="Left" Margin="366,163,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
-        <views:SingleItemView/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- Temporary Navigation, to be swapped with TreeView -->
+        <Grid Grid.Column="0">
+            <views:SimpleNavigation/>
+        </Grid>
+
+        <!-- Switch instruction for particular viewmodels and views -->
+        <Grid Grid.Column="1">
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type moonviewmodels:MoonUserControlViewModel}">
+                        <specificobjectviews:MoonUserControl/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type planetviewmodels:PlanetUserControlViewModel}">
+                        <specificobjectviews:PlanetUserControl/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type galaxyviewmodels:GalaxyUserControlViewModel}">
+                        <specificobjectviews:GalaxyUserControl/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type editviewmodels:PlanetEditViewModel}">
+                        <editviews:EditPlanetUserControl/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
     </Grid>
 </Window>
