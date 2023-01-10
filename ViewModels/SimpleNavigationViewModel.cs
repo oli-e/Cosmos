@@ -14,13 +14,20 @@ namespace Cosmos.ViewModels
 {
     public class SimpleNavigationViewModel : BaseViewModel
     {
+        /*
+         * This class would need to be replaced by the TreeView controls
+         * How?
+         * I have no idea
+         * https://www.codeproject.com/Articles/26288/Simplifying-the-WPF-TreeView-by-Using-the-ViewMode
+         * https://www.c-sharpcorner.com/article/populating-hierarchical-data-in-treeview-in-wpf-using-mvvm/
+         */
         public ICommand GoToPlanet { get; }
         public ICommand GoToMoon { get; }
 
         public SimpleNavigationViewModel(NavigationStore navigationStore)
         {
-            GoToPlanet = new NavigatePlanet(navigationStore);
-            GoToMoon = new NavigateMoon(navigationStore);
+            GoToPlanet = new NavigationCommand<PlanetUserControlViewModel>(navigationStore, () => new PlanetUserControlViewModel());
+            GoToMoon = new NavigationCommand<MoonUserControlViewModel>(navigationStore,() => new MoonUserControlViewModel());
         }
     }
 }

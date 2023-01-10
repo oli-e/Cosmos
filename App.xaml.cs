@@ -18,10 +18,13 @@ namespace Cosmos
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            //initialization of the common navigation store
             NavigationStore navigationStore = new NavigationStore();
 
+            //initialization of view at the beginning of the application
             navigationStore.CurrentViewModel = new PlanetUserControlViewModel();
 
+            //overriding the startup of the main window
             MainWindow = new MainWindow()
             {
                 

@@ -28,11 +28,5 @@ namespace Cosmos.ViewModels
         {
             OnPropertyChanged(nameof(CurrentViewModel));
         }
-
-        /*public BaseViewModel CurrentViewModel { get; }
-        public MainWindowViewModel()
-        {
-            CurrentViewModel = new MoonUserControlViewModel();
-        }*/
     }
 }
