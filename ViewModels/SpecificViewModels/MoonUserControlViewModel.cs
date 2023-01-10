@@ -10,6 +10,12 @@ namespace Cosmos.ViewModels.SpecificViewModels.MoonViewModels
     public class MoonUserControlViewModel : BaseViewModel
     {
         private readonly MoonObjectViewModel _moon;
+        private Dictionary<string, string> _objectProperties;
+        public Dictionary<string,string> ObjectProperties
+        {
+            get { return _objectProperties; }
+            set { _objectProperties = value; }
+        }
         public MoonObjectViewModel Moon
         {
             get { return _moon; }
@@ -28,7 +34,11 @@ namespace Cosmos.ViewModels.SpecificViewModels.MoonViewModels
                         UnitValue<long>.Of(130_000, Unit.KM)
                     )
                 );
-
+            ObjectProperties = Moon.PropertiesDict;
+            foreach (KeyValuePair<string,string> a in ObjectProperties)
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", a.Key, a.Value);
+            }  
         }
     }
 }
