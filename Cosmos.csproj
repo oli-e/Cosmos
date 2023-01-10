@@ -84,8 +84,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\NavigateMoon.cs" />
-    <Compile Include="Commands\NavigatePlanet.cs" />
     <Compile Include="Commands\NavigationCommand.cs" />
     <Compile Include="Model\model\abstract\AstronomicalObject.cs" />
     <Compile Include="Model\model\abstract\IdentifableObject.cs" />
