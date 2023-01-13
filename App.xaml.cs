@@ -1,6 +1,5 @@
 ﻿using Cosmos.Stores;
 using Cosmos.ViewModels;
-using Cosmos.ViewModels.SpecificViewModels.PlanetViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,15 +19,16 @@ namespace Cosmos
         {
             //initialization of the common navigation store
             NavigationStore navigationStore = new NavigationStore();
+            //Mimic database access
+            DummyItemsStore dummyItemsStore = new DummyItemsStore();
 
             //initialization of view at the beginning of the application
-            navigationStore.CurrentViewModel = new PlanetUserControlViewModel();
+            navigationStore.CurrentViewModel = new SingleItemViewViewModel(dummyItemsStore,0);
 
             //overriding the startup of the main window
             MainWindow = new MainWindow()
             {
-                
-                DataContext = new MainWindowViewModel(navigationStore)
+                DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore)
             };
             MainWindow.Show();
             base.OnStartup(e);

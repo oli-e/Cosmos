@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\GetItemByIDCommand.cs" />
     <Compile Include="Commands\NavigationCommand.cs" />
     <Compile Include="Model\model\abstract\AstronomicalObject.cs" />
     <Compile Include="Model\model\abstract\IdentifableObject.cs" />
@@ -99,46 +100,27 @@
     <Compile Include="Model\service\DataGenerator.cs" />
     <Compile Include="Model\dao\GalaxyDao.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Stores\CurrentItemStore.cs" />
+    <Compile Include="Stores\DummyItemsStore.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\EditViewModels\PlanetEditViewModel.cs" />
+    <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModels\CommonObjectViewModel.cs" />
     <Compile Include="ViewModels\SimpleNavigationViewModel.cs" />
     <Compile Include="ViewModels\SingleItemViewViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\AstronomicalObjectObjectViewModel.cs" />
-    <Compile Include="ViewModels\SpecificViewModels\AstronomicalObjectUserControlViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\BasicAstronomicalObjectViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\SpecificViewModels\BasicAstronomicalUserControlViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\GalaxyObjectViewModel.cs" />
-    <Compile Include="ViewModels\SpecificViewModels\GalaxyUserControlViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\MoonObjectViewModel.cs" />
-    <Compile Include="ViewModels\SpecificViewModels\MoonUserControlViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\PlanetObjectViewModel.cs" />
-    <Compile Include="ViewModels\SpecificViewModels\PlanetUserControlViewModel.cs" />
     <Compile Include="Views\EditSpecificObjectView\EditPlanetUserControl.xaml.cs">
       <DependentUpon>EditPlanetUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SimpleNavigation.xaml.cs">
       <DependentUpon>SimpleNavigation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SingleItemView.xaml.cs">
       <DependentUpon>SingleItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SpecificObjectView\BasicAstronomicalObjectUserControl.xaml.cs">
-      <DependentUpon>BasicAstronomicalObjectUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SpecificObjectView\GalaxyUserControl.xaml.cs">
-      <DependentUpon>GalaxyUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SpecificObjectView\MoonUserControl.xaml.cs">
-      <DependentUpon>MoonUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SpecificObjectView\AstronomicalObjectUserControl.xaml.cs">
-      <DependentUpon>AstronomicalObjectUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SpecificObjectView\PlanetUserControl.xaml.cs">
-      <DependentUpon>PlanetUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -161,31 +143,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\HelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SimpleNavigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SingleItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SpecificObjectView\BasicAstronomicalObjectUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SpecificObjectView\GalaxyUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SpecificObjectView\MoonUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\SpecificObjectView\AstronomicalObjectUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SpecificObjectView\PlanetUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

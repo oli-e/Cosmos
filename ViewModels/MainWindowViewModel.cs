@@ -1,6 +1,4 @@
 ﻿using Cosmos.Stores;
-using Cosmos.ViewModels.SpecificViewModels.MoonViewModels;
-using Cosmos.ViewModels.SpecificViewModels.PlanetViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +10,17 @@ namespace Cosmos.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         private readonly NavigationStore _navigationStore;
+        private readonly DummyItemsStore _dummyItemStore;
 
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
         public SimpleNavigationViewModel SimpleNavigationViewModel { get; set; }
 
-        public MainWindowViewModel(NavigationStore navigationStore)
+        public MainWindowViewModel(DummyItemsStore d,NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-            SimpleNavigationViewModel = new SimpleNavigationViewModel(navigationStore);
+            _dummyItemStore = d;
+            SimpleNavigationViewModel = new SimpleNavigationViewModel(navigationStore,d);
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 

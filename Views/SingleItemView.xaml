@@ -7,6 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <ListBox ItemsSource="{Binding ObjectProperties}"
+                 SelectedValuePath="Key"
+                 SelectionMode="Single">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Key}"/>
+                        <TextBlock Text="{Binding Path=Value}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

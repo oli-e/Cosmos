@@ -8,8 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
-            <Button Content="Planet" Command="{Binding GoToPlanet}"/>
-            <Button Content="Moon" Command="{Binding GoToMoon}"/>
+            <Button Content="Planet (ByID)" Command="{Binding GoToPlanetByID}"/>
+            <Button Content="Moon (ByID)" Command="{Binding GoToMoonByID}"/>
+            <Button Content="Help" Command="{Binding GoToHelp}"/>
         </StackPanel>
     </Grid>
 </UserControl>

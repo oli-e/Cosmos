@@ -1,8 +1,6 @@
 ﻿using Cosmos.Commands;
 using Cosmos.Services;
 using Cosmos.Stores;
-using Cosmos.ViewModels.SpecificViewModels.MoonViewModels;
-using Cosmos.ViewModels.SpecificViewModels.PlanetViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +19,15 @@ namespace Cosmos.ViewModels
          * https://www.codeproject.com/Articles/26288/Simplifying-the-WPF-TreeView-by-Using-the-ViewMode
          * https://www.c-sharpcorner.com/article/populating-hierarchical-data-in-treeview-in-wpf-using-mvvm/
          */
-        public ICommand GoToPlanet { get; }
-        public ICommand GoToMoon { get; }
+        public ICommand GoToPlanetByID { get; }
+        public ICommand GoToMoonByID { get; }
+        public ICommand GoToHelp { get; }
 
-        public SimpleNavigationViewModel(NavigationStore navigationStore)
+        public SimpleNavigationViewModel(NavigationStore navigationStore, DummyItemsStore d)
         {
-            GoToPlanet = new NavigationCommand<PlanetUserControlViewModel>(navigationStore, () => new PlanetUserControlViewModel());
-            GoToMoon = new NavigationCommand<MoonUserControlViewModel>(navigationStore,() => new MoonUserControlViewModel());
+                GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, () => new HelpViewModel());
+                GoToPlanetByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, () => new SingleItemViewViewModel(d, 0));
+                GoToMoonByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, () => new SingleItemViewViewModel(d, 1));
         }
     }
 }
