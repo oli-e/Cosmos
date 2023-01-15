@@ -25,18 +25,48 @@ namespace Cosmos.Stores
                         new RightAscension(1, 1, 1)
                     )
                 ),
+            /*new CommonObjectViewModel(new Galaxy(
+                        "Milky Way",
+                        UnitValue<long>.Of(130_000, Unit.KM),
+                        UnitValue<long>.Of(200_000_000, Unit.KM),
+                        UnitValue<double>.Of(1, Unit.MAGNITUDE),
+                        new Declination(10, 5, 1),
+                        new RightAscension(5, 3, 12),
+                        GalaxyType.SPIRAL)
+                )
+            ), BasicAstronomicalObjects cannot be converted that way*/
+            new CommonObjectViewModel(new Star(
+                "Wojciech's Sun",
+                UnitValue<long>.Of(130_000, Unit.KM),
+                UnitValue<double>.Of(1, Unit.SUN_MASS),
+                UnitValue<long>.Of(200_000_000, Unit.KM),
+                UnitValue<double>.Of(1, Unit.MAGNITUDE),
+                new Declination(10, 5, 1),
+                new RightAscension(5, 3, 12),
+                StarType.SOLAR)),
             new CommonObjectViewModel(new Moon(
-                        "Wojciech's Moon",
-                        UnitValue<long>.Of(2, Unit.KM),
-                        UnitValue<double>.Of(2, Unit.SUN_MASS),
-                        UnitValue<long>.Of(2, Unit.KM),
-                        UnitValue<double>.Of(2, Unit.MAGNITUDE),
-                        new Declination(2, 2, 2),
-                        new RightAscension(2, 2, 2),
-                        UnitValue<long>.Of(2, Unit.KM)
+                "Wojciech's Moon",
+                UnitValue<long>.Of(40_000, Unit.KM),
+                UnitValue<double>.Of(0.05, Unit.SUN_MASS),
+                UnitValue<long>.Of(200_000_000, Unit.KM),
+                UnitValue<double>.Of(1, Unit.MAGNITUDE),
+                new Declination(10, 5, 1),
+                new RightAscension(5, 3, 12),
+                UnitValue<long>.Of(350_000, Unit.KM)
+                )
+            ),
+            new CommonObjectViewModel( new Planet(
+                        "Wojciech's Planet",
+                        UnitValue<long>.Of(1, Unit.KM),
+                        UnitValue<double>.Of(1, Unit.SUN_MASS),
+                        UnitValue<long>.Of(1, Unit.KM),
+                        UnitValue<double>.Of(1, Unit.MAGNITUDE),
+                        new Declination(1, 1, 1),
+                        new RightAscension(1, 1, 1)
                     )
                 )
             };
+            
         }
 
         public CommonObjectViewModel getItem(int id)

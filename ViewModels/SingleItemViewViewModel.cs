@@ -27,6 +27,7 @@ namespace Cosmos.ViewModels
         }
         public SingleItemViewViewModel(DummyItemsStore d,int id)
         {
+            ObjectProperties.Clear();
             CommonObjectViewModel ao = d.getItem(id);
             ObjectProperties = ao.ObjectProperties;
         }
