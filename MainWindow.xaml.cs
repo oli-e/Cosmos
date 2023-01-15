@@ -20,10 +20,10 @@ namespace Cosmos
     public partial class MainWindow : Window
     {
 
-        private DataFileSaver databaseService = new DataFileSaver();
-        private GalaxyDao galaxyDao = new GalaxyDao();
-        private DataGenerator dataGenerator = new DataGenerator();
-        private DataFileSaver dataFileSaver = new DataFileSaver();
+        //private DataFileSaver databaseService = new DataFileSaver();
+        //private GalaxyDao galaxyDao = new GalaxyDao();
+        //private DataGenerator dataGenerator = new DataGenerator();
+        //private DataFileSaver dataFileSaver = new DataFileSaver();
 
         public MainWindow()
         {
@@ -31,7 +31,7 @@ namespace Cosmos
         }
 
         // Simple example of data handling in the application (modification, loading and saving)
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Initialize ids data
             dataFileSaver.SaveToFile(1, "ids");
@@ -73,6 +73,6 @@ namespace Cosmos
             MessageBox.Show("Ok");
 
             // Remember to remove data.json and ids.json if you want to run this code again.
-        }
+        }*/
     }
 }

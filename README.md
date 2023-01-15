@@ -87,3 +87,18 @@
 # Następne spotkanie: środa 21.12.2022 19:30
 
 ### Przezroczysty czajnik w tle
+
+# 21.12.2022 
+
+  - Tests: NUnit
+    - https://www.lambdatest.com/blog/nunit-vs-xunit-vs-mstest/
+  - Podstawowy Model:
+    - końcowa hierarchia obiektów,
+    - save/load functionality,
+    
+  - Ma wyglądać typowo Windowsowo: Total Commander
+  
+  - Co pozostaje:
+    - Datatypes, generator -> P
+    - MVVM, -> W 
+    - TreeView, Tests -> O
