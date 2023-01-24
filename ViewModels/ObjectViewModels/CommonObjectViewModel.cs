@@ -18,7 +18,7 @@ namespace Cosmos.ViewModels.ObjectViewModels
             set { _objectProperties = value; }
         }
 
-        public CommonObjectViewModel(AstronomicalObject ao)
+        public CommonObjectViewModel(Object ao)
         {
             _objectProperties = new Dictionary<string, string>();
             PropertyInfo[] aoProperties = ao.GetType().GetProperties();

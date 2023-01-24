@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class PlanetarySystem : BasicAstronomicalObject
+    public class PlanetarySystem : BasicAstronomicalObject, IParent<Planet>
     {
         public List<Planet> Planets { get; set; } = new List<Planet>();
 
@@ -44,6 +44,24 @@ namespace Cosmos
         private Planet FindPlanetById(long id)
         {
             return Planets.Find(p => p.Id == id);
+        }
+
+		public List<Planet> GetChildren()
+		{
+            return Planets;
+		}
+
+        public override object FindById(long id)
+        {
+            foreach (Planet planet in Planets)
+            {
+                object obj = planet.FindById(id);
+                if (obj != null)
+                {
+                    return obj;
+                }
+            }
+            return base.FindById(id);
         }
     }
 }

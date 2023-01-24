@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class Galaxy : BasicAstronomicalObject
+    public class Galaxy : BasicAstronomicalObject, IParent<Star>
     {
         public List<Star> Stars { get; set; } = new List<Star>();
         public GalaxyType Type { get; set; }
@@ -46,6 +46,24 @@ namespace Cosmos
         private Star FindStarById(long id)
         {
             return Stars.Find(s => s.Id == id);
+        }
+
+		public List<Star> GetChildren()
+		{
+			return Stars;
+		}
+
+        public override object FindById(long id)
+        {
+            foreach (Star star in Stars)
+            {
+                object obj = star.FindById(id);
+                if (obj != null)
+                {
+                    return obj;
+                }
+            }
+            return base.FindById(id);
         }
     }
 }

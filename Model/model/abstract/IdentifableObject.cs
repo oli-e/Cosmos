@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public abstract class IdentifableObject
+    public abstract class IdentifableObject : IFindableById
     {
         protected IdentifableObject(long id)
         {
@@ -19,5 +19,10 @@ namespace Cosmos
         }
 
         public long Id { get; set; }
-    }
+
+		public virtual object FindById(long id)
+		{
+            return Id == id ? this : null;
+        }
+	}
 }
