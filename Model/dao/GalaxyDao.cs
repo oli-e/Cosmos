@@ -38,6 +38,23 @@ namespace Cosmos
             SaveData();
         }
 
+        public object FindById(long id)
+        {
+            foreach (KeyValuePair<long, Galaxy> entry in Galaxies)
+            {
+                object obj = entry.Value.FindById(id);
+                if (obj != null)
+                {
+                    return obj;
+                }
+                if (entry.Key == id)
+				{
+                    return Galaxies[id];
+				}
+            }
+            return null;
+        }
+
         public void LoadData()
         {
             List<Galaxy> galaxies = dataFileSaver.LoadAllFromFile<Galaxy>(DATA_FILE_NAME);
