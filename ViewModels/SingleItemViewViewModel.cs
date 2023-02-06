@@ -25,9 +25,12 @@ namespace Cosmos.ViewModels
                 OnPropertyChanged(nameof(ObjectProperties)); 
             }
         }
+        //TODO DummyItemsStore must be a refference to database
+        //TODO2 change to only receive id, and fetch objects from the database
         public SingleItemViewViewModel(DummyItemsStore d,int id)
         {
             ObjectProperties.Clear();
+            //TODO Switch to a DB call
             CommonObjectViewModel ao = d.getItem(id);
             ObjectProperties = ao.ObjectProperties;
         }

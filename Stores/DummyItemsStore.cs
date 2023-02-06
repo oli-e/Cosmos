@@ -33,7 +33,7 @@ namespace Cosmos.Stores
                         new RightAscension(1, 1, 1)
                     )
                 ),
-            /*new CommonObjectViewModel(new Galaxy(
+            new CommonObjectViewModel(new Galaxy(
                         "Milky Way",
                         UnitValue<long>.Of(130_000, Unit.KM),
                         UnitValue<long>.Of(200_000_000, Unit.KM),
@@ -41,8 +41,8 @@ namespace Cosmos.Stores
                         new Declination(10, 5, 1),
                         new RightAscension(5, 3, 12),
                         GalaxyType.SPIRAL)
-                )
-            ), BasicAstronomicalObjects cannot be converted that way*/
+                //)
+            ), //BasicAstronomicalObjects cannot be converted that way*/
             new CommonObjectViewModel(getSunAsObject()),
             new CommonObjectViewModel(new Moon(
                 "Wojciech's Moon",

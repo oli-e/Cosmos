@@ -10,13 +10,15 @@ namespace Cosmos.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         private readonly NavigationStore _navigationStore;
-        private readonly DummyItemsStore _dummyItemStore;
+        //TODO
+        private readonly DummyItemsStore _dummyItemStore; // To be replaced
+        //private readonly CurrentItemStore _currentItemStore;
 
         public BaseViewModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
         public SimpleNavigationViewModel SimpleNavigationViewModel { get; set; }
 
-        public MainWindowViewModel(DummyItemsStore d,NavigationStore navigationStore)
+        public MainWindowViewModel(DummyItemsStore d,NavigationStore navigationStore) //CurrentItemStore
         {
             _navigationStore = navigationStore;
             _dummyItemStore = d;

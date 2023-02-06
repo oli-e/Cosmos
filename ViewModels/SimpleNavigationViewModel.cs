@@ -21,8 +21,10 @@ namespace Cosmos.ViewModels
          */
         public ICommand GoToPlanetByID { get; }
         public ICommand GoToMoonByID { get; }
+        //public ICommand GoToObjectByID { get; }
         public ICommand GoToHelp { get; }
 
+        //TODO SummyItemsStore swap for CurrentItemStore
         public SimpleNavigationViewModel(NavigationStore navigationStore, DummyItemsStore d)
         {
                 GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, () => new HelpViewModel());

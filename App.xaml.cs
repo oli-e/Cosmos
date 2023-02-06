@@ -22,12 +22,16 @@ namespace Cosmos
             //Mimic database access
             DummyItemsStore dummyItemsStore = new DummyItemsStore();
 
+            //TODO
+            //CurrentItemStore curentItemStore = new CurrentItemStore();
+
             //initialization of view at the beginning of the application
             navigationStore.CurrentViewModel = new SingleItemViewViewModel(dummyItemsStore,0);
 
             //overriding the startup of the main window
             MainWindow = new MainWindow()
             {
+                //TODO swap dummy for CurrentItem
                 DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore)
             };
             MainWindow.Show();
