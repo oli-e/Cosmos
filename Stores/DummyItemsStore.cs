@@ -24,10 +24,10 @@ namespace Cosmos.Stores
 			Console.WriteLine();
 		}
 
-		//To be changed
-		public CommonObjectViewModel getItem(int id)
-		{
-			return new CommonObjectViewModel(galaxyDao.FindById(id));
-		}
-	}
+        //To be changed
+        public IdentifableObject getItem(int id)
+        {
+            return (IdentifableObject)galaxyDao.FindById(id);
+        }
+    }
 }

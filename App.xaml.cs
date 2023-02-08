@@ -28,17 +28,22 @@ namespace Cosmos
 
             //TODO
             //CurrentItemIDStore for switching the contetnts of single item view
-            CurrentItemIDStore curentItemIDStore = new CurrentItemIDStore();
-            curentItemIDStore.CurrentItemID = 0;
+            CurrentItemIDStore currentItemIDStore = new CurrentItemIDStore();
+            currentItemIDStore.CurrentItemID = 0;
+
+            //CurrentItemStore
+            CurrentItemStore currentItemStore = new CurrentItemStore();
+            currentItemStore.CurrentItem = dummyItemsStore.getItem(0);
+            System.Diagnostics.Debug.WriteLine(currentItemStore.CurrentItem);
 
             //initialization of view at the beginning of the application
-            navigationStore.CurrentViewModel = new SingleItemViewViewModel(dummyItemsStore,curentItemIDStore);
+            navigationStore.CurrentViewModel = new SingleItemViewViewModel(dummyItemsStore,currentItemIDStore);
 
             //overriding the startup of the main window
             MainWindow = new MainWindow()
             {
                 //TODO swap dummy for CurrentItem
-                DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore, curentItemIDStore)
+                DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore, currentItemIDStore)
             };
             MainWindow.Show();
             base.OnStartup(e);

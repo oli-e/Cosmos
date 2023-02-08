@@ -1,4 +1,5 @@
-﻿using Cosmos.Stores;
+﻿using Cosmos.Services;
+using Cosmos.Stores;
 using Cosmos.ViewModels.ObjectViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,21 +26,21 @@ namespace Cosmos.ViewModels
                 OnPropertyChanged(nameof(ObjectProperties)); 
             }
         }
-        //TODO DummyItemsStore must be a refference to database
-        //TODO2 change to only receive id, and fetch objects from the database
+        private GetObjectPropertiesService getObjectPropertiesService = new GetObjectPropertiesService();
         public SingleItemViewViewModel(DummyItemsStore d,CurrentItemIDStore currentItemIDStore)
         {
             ObjectProperties.Clear();
-            //TODO Switch to a DB call
-            CommonObjectViewModel ao = d.getItem(currentItemIDStore.CurrentItemID);
-            ObjectProperties = ao.ObjectProperties;
+            IdentifableObject ao = d.getItem(currentItemIDStore.CurrentItemID);
+            ObjectProperties = getObjectPropertiesService.getObjectProperties(ao);
         }
 
         public void reloadView(DummyItemsStore d, int id)
         {
             ObjectProperties.Clear();
-            CommonObjectViewModel ao = d.getItem(id);
-            ObjectProperties = ao.ObjectProperties;
+            //CommonObjectViewModel ao = d.getItem(id);
+            //ObjectProperties = ao.ObjectProperties;
         }
+
+        
     }
 }
