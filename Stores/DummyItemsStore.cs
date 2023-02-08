@@ -17,11 +17,13 @@ namespace Cosmos.Stores
 		public DummyItemsStore(GalaxyDao galaxyDao)
 		{
 			this.galaxyDao = galaxyDao;
-			//Galaxy g = dataGenerator.GenerateGalaxy();
-			//galaxyDao.SaveGalaxy(g);
-			//galaxyDao.SaveData();
-			//galaxyDao.RemoveById(0);
-			Console.WriteLine();
+
+			// Comment this block of code when you've already generated the data (so you have appropriate files)
+			// ----
+			Galaxy g = dataGenerator.GenerateGalaxy();
+			galaxyDao.SaveGalaxy(g);
+			galaxyDao.SaveData();
+			// ----
 		}
 
         //To be changed
