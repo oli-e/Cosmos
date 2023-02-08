@@ -29,7 +29,7 @@ namespace Cosmos.ViewModels
                 GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore, () => new HelpViewModel());
                 //GoToPlanetByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore,currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore));
                 //GoToMoonByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore));
-                GoToObjectByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore)) ;
+                GoToObjectByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore));
         }
     }
 }

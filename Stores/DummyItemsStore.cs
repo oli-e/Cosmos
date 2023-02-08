@@ -16,12 +16,14 @@ namespace Cosmos.Stores
         
         public DummyItemsStore()
         {
-            //Galaxy g = dataGenerator.GenerateGalaxy();
-            //galaxyDao.SaveGalaxy(g);
-            //object o = galaxyDao.FindById(4);
+            Galaxy g = dataGenerator.GenerateGalaxy();
+            galaxyDao.SaveGalaxy(g);
+            object o = galaxyDao.FindById(4);
             //Console.WriteLine();
+            System.Diagnostics.Debug.WriteLine($"Successful Model object creation");
 
-            dummy_list = new List<CommonObjectViewModel>()
+            //Disable this temporarli (testing Model access)
+            /*dummy_list = new List<CommonObjectViewModel>()
             {
             new CommonObjectViewModel( new Planet(
                         "Wojciech's Planet",
@@ -42,7 +44,7 @@ namespace Cosmos.Stores
                         new RightAscension(5, 3, 12),
                         GalaxyType.SPIRAL)
                 //)
-            ), //BasicAstronomicalObjects cannot be converted that way*/
+            ), //BasicAstronomicalObjects cannot be converted that way
             new CommonObjectViewModel(getSunAsObject()),
             new CommonObjectViewModel(new Moon(
                 "Wojciech's Moon",
@@ -65,8 +67,8 @@ namespace Cosmos.Stores
                         new RightAscension(1, 1, 1)
                     )
                 )
-            };
-            
+            };*/
+
         }
 
         public Object getSunAsObject()
@@ -83,6 +85,7 @@ namespace Cosmos.Stores
             return star;
         }
 
+        //To be changed
         public CommonObjectViewModel getItem(int id)
         {
             return dummy_list[id];
