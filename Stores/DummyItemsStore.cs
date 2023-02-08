@@ -16,10 +16,10 @@ namespace Cosmos.Stores
         
         public DummyItemsStore()
         {
-            Galaxy g = dataGenerator.GenerateGalaxy();
-            galaxyDao.SaveGalaxy(g);
-            object o = galaxyDao.FindById(4);
-            Console.WriteLine();
+            //Galaxy g = dataGenerator.GenerateGalaxy();
+            //galaxyDao.SaveGalaxy(g);
+            //object o = galaxyDao.FindById(4);
+            //Console.WriteLine();
 
             dummy_list = new List<CommonObjectViewModel>()
             {

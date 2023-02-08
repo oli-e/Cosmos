@@ -18,18 +18,18 @@ namespace Cosmos.ViewModels
          * I have no idea
          * https://www.codeproject.com/Articles/26288/Simplifying-the-WPF-TreeView-by-Using-the-ViewMode
          * https://www.c-sharpcorner.com/article/populating-hierarchical-data-in-treeview-in-wpf-using-mvvm/
+         * https://stackoverflow.com/questions/42591273/how-to-identify-which-button-clicked-mvvm -> how to use the Execute method overriding in Navigation Command class
          */
-        public ICommand GoToPlanetByID { get; }
-        public ICommand GoToMoonByID { get; }
-        //public ICommand GoToObjectByID { get; }
+        //public ICommand GoToPlanetByID { get; } //Seems like won't be needed anymore
+        //public ICommand GoToMoonByID { get; } //Seems like won't be needed anymore
         public ICommand GoToHelp { get; }
-
-        //TODO SummyItemsStore swap for CurrentItemStore
-        public SimpleNavigationViewModel(NavigationStore navigationStore, DummyItemsStore d)
+        public ICommand GoToObjectByID { get; }
+        public SimpleNavigationViewModel(NavigationStore navigationStore, DummyItemsStore d, CurrentItemIDStore currentItemIDStore)
         {
-                GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, () => new HelpViewModel());
-                GoToPlanetByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, () => new SingleItemViewViewModel(d, 0));
-                GoToMoonByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, () => new SingleItemViewViewModel(d, 1));
+                GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore, () => new HelpViewModel());
+                //GoToPlanetByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore,currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore));
+                //GoToMoonByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore));
+                GoToObjectByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore, () => new SingleItemViewViewModel(d, currentItemIDStore)) ;
         }
     }
 }

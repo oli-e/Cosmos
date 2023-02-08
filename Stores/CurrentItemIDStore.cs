@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Stores
 {
-    public class CurrentItemStore
+    public class CurrentItemIDStore
     {
-        private CommonObjectViewModel _currentItem;
-        public CommonObjectViewModel CurrentItem
+        private int _currentItemID;
+        public int CurrentItemID
         {
-            get => _currentItem;
+            get => _currentItemID;
             set
             {
-                _currentItem = value;
+                _currentItemID = value;
                 OnCurrentViewModelChanged();
             }
         }
