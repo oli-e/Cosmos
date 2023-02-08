@@ -13,7 +13,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=Key}"/>
+                        <Label Content="{Binding Path=Key}"/>
                         <TextBlock Text="{Binding Path=Value}"/>
                     </StackPanel>
                 </DataTemplate>
