@@ -65,5 +65,10 @@ namespace Cosmos
             }
             return base.FindById(id);
         }
-    }
+
+		public override void Remove()
+		{
+			
+		}
+	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Cosmos
 
         private GlobalIdentificatorProvider()
         {
-            id = dataFileSaver.LoadFromFile<long>(IDS_DATA_FILE_NAME);
+            
         }
 
         public static GlobalIdentificatorProvider GetInstance()
@@ -32,10 +33,28 @@ namespace Cosmos
 
         public long Get()
         {
-            return id++;
+            InitializeIdLazily();
+            long idToReturn = id++;
+            Save();
+            return idToReturn;
         }
 
-        // TODO saving data after every change
+        private void InitializeIdLazily()
+		{
+            if (id == 0)
+			{
+                try
+				{
+                    id = dataFileSaver.LoadFromFile<long>(IDS_DATA_FILE_NAME);
+                }
+                catch (FileNotFoundException e)
+				{
+                    Save();
+                    id = dataFileSaver.LoadFromFile<long>(IDS_DATA_FILE_NAME);
+                }
+            }
+        }
+
         public void Save()
         {
             dataFileSaver.SaveToFile(id, IDS_DATA_FILE_NAME);

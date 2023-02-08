@@ -23,20 +23,32 @@ namespace Cosmos
 
         public Galaxy GetGalaxy(long id)
         {
-            return Galaxies[id];
+            return Galaxies.ContainsKey(id) ? Galaxies[id] : null;
         }
 
         public void SaveGalaxy(Galaxy galaxy)
         {
             Galaxies[galaxy.Id] = galaxy;
-            SaveData();
         }
 
         public void RemoveGalaxy(long id)
         {
             Galaxies.Remove(id);
-            SaveData();
         }
+
+        public void RemoveById(long id)
+		{
+            Galaxy galaxyToRemove = GetGalaxy(id);
+            if (galaxyToRemove != null)
+			{
+                RemoveGalaxy(id);
+                return;
+			}
+            object objToRemove = FindById(id);
+            IRemovable removable = (IRemovable) objToRemove;
+            removable.Remove();
+		}
+
 
         public object FindById(long id)
         {
@@ -57,8 +69,15 @@ namespace Cosmos
 
         public void LoadData()
         {
-            List<Galaxy> galaxies = dataFileSaver.LoadAllFromFile<Galaxy>(DATA_FILE_NAME);
-            galaxies.ForEach(galaxy => Galaxies[galaxy.Id] = galaxy);
+            try
+			{
+                List<Galaxy> galaxies = dataFileSaver.LoadAllFromFile<Galaxy>(DATA_FILE_NAME);
+                galaxies.ForEach(galaxy => Galaxies[galaxy.Id] = galaxy);
+            }
+            catch (FileNotFoundException e)
+			{
+
+			}
         }
 
         // TODO saving data after every change

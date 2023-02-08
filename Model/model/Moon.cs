@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class Moon : AstronomicalObject
+    public class Moon : AstronomicalObject, IRemovable
     {
+        private Planet Planet { get; set; }
+
         public UnitValue<long> DistanceFromPlanet { get; set; }
 
         public Moon(
@@ -22,5 +24,15 @@ namespace Cosmos
         {
             DistanceFromPlanet = distanceFromPlanet;
         }
-    }
+
+        public void SetPlanet(Planet planet)
+		{
+            Planet = planet;
+        }
+
+		public override void Remove()
+		{
+            Planet.RemoveMoon(Id);
+		}
+	}
 }

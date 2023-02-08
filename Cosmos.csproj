@@ -88,6 +88,7 @@
     <Compile Include="Commands\NavigationCommand.cs" />
     <Compile Include="Model\model\abstract\AstronomicalObject.cs" />
     <Compile Include="Model\model\abstract\IdentifableObject.cs" />
+    <Compile Include="Model\model\abstract\IRemovable.cs" />
     <Compile Include="Model\model\abstract\IFindableById.cs" />
     <Compile Include="Model\model\abstract\IParent.cs" />
     <Compile Include="Model\model\abstract\NamedObject.cs" />

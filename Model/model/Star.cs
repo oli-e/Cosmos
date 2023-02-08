@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class Star : AstronomicalObject, IParent<PlanetarySystem>
+    public class Star : AstronomicalObject, IParent<PlanetarySystem>, IRemovable
     {
+        private Galaxy Galaxy { get; set; }
         public List<PlanetarySystem> PlanetarySystems { get; set; } = new List<PlanetarySystem>();
         public StarType Type { get; set; }
 
@@ -23,6 +24,11 @@ namespace Cosmos
         {
             Type = type;
         }
+
+        public void SetGalaxy(Galaxy galaxy)
+		{
+            Galaxy = galaxy;
+		}
 
         public PlanetarySystem GetPlanetarySystem(long id)
         {
@@ -65,5 +71,10 @@ namespace Cosmos
             }
             return base.FindById(id);
         }
-    }
+
+		public override void Remove()
+		{
+            Galaxy.RemoveStar(Id);
+		}
+	}
 }

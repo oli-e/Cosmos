@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class PlanetarySystem : BasicAstronomicalObject, IParent<Planet>
+    public class PlanetarySystem : BasicAstronomicalObject, IParent<Planet>, IRemovable
     {
+        private Star Star { get; set; }
+
         public List<Planet> Planets { get; set; } = new List<Planet>();
 
         public PlanetarySystem(
@@ -20,6 +22,11 @@ namespace Cosmos
         {
 
         }
+
+        public void SetStar(Star star)
+		{
+            Star = star;
+		}
 
         public Planet GetPlanet(long id)
         {
@@ -63,5 +70,10 @@ namespace Cosmos
             }
             return base.FindById(id);
         }
-    }
+
+		public override void Remove()
+		{
+            Star.RemovePlanetarySystem(Id);
+		}
+	}
 }
