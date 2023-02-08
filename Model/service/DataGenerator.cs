@@ -60,16 +60,9 @@ namespace Cosmos
                 );
 
             milkyWay.AddStar(sun);
-            sun.SetGalaxy(milkyWay);
-
             sun.AddPlanetarySystem(solarSystem);
-            solarSystem.SetStar(sun);
-
             solarSystem.AddPlanet(earth);
-            earth.SetPlanetarySystem(solarSystem);
-
             earth.AddMoon(moon);
-            moon.SetPlanet(earth);
 
             return milkyWay;
         }

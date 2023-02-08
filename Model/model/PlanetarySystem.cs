@@ -36,6 +36,7 @@ namespace Cosmos
         public void AddPlanet(Planet planet)
         {
             Planets.Add(planet);
+            planet.SetPlanetarySystem(this);
         }
 
         public List<Planet> GetPlanets()

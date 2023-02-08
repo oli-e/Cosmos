@@ -37,6 +37,7 @@ namespace Cosmos
         public void AddMoon(Moon moon)
         {
             Moons.Add(moon);
+            moon.SetPlanet(this);
         }
 
         public List<Moon> GetMoons()

@@ -18,7 +18,7 @@ namespace Cosmos.Stores
 		{
 			this.galaxyDao = galaxyDao;
 
-			// Comment this block of code when you've already generated the data (so you have appropriate files)
+			// Comment out this block of code when you've already generated the data (so you have appropriate files)
 			// ----
 			Galaxy g = dataGenerator.GenerateGalaxy();
 			galaxyDao.SaveGalaxy(g);

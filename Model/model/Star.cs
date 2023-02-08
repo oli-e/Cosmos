@@ -38,6 +38,7 @@ namespace Cosmos
         public void AddPlanetarySystem(PlanetarySystem planetarySystem)
         {
             PlanetarySystems.Add(planetarySystem);
+            planetarySystem.SetStar(this);
         }
 
         public List<PlanetarySystem> GetPlanetarySystems()

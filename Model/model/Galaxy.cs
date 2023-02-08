@@ -31,6 +31,7 @@ namespace Cosmos
         public void AddStar(Star star)
         {
             Stars.Add(star);
+            star.SetGalaxy(this);
         }
 
         public List<Star> GetStars()
