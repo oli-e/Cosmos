@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class Planet : AstronomicalObject, IParent<Moon>
+    public class Planet : AstronomicalObject, IParent<Moon>, IRemovable
     {
+        private PlanetarySystem PlanetarySystem { get; set; }
+
         public List<Moon> Moons { get; set; } = new List<Moon>();
 
         public Planet(
@@ -21,6 +23,12 @@ namespace Cosmos
         {
 
         }
+
+        public void SetPlanetarySystem(PlanetarySystem planetarySystem)
+		{
+            PlanetarySystem = planetarySystem;
+		}
+
         public Moon GetMoon(long id)
         {
             return FindMoonById(id);
@@ -29,6 +37,7 @@ namespace Cosmos
         public void AddMoon(Moon moon)
         {
             Moons.Add(moon);
+            moon.SetPlanet(this);
         }
 
         public List<Moon> GetMoons()
@@ -62,5 +71,10 @@ namespace Cosmos
 			}
             return base.FindById(id);
         }
-    }
+
+		public override void Remove()
+		{
+            PlanetarySystem.RemovePlanet(Id);
+		}
+	}
 }

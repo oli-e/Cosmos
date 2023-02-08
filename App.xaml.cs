@@ -15,12 +15,16 @@ namespace Cosmos
     /// </summary>
     public partial class App : Application
     {
+        private GalaxyDao galaxyDao = new GalaxyDao();
+
         protected override void OnStartup(StartupEventArgs e)
         {
+            galaxyDao.LoadData();
+
             //initialization of the common navigation store
             NavigationStore navigationStore = new NavigationStore();
             //Mimic database access
-            DummyItemsStore dummyItemsStore = new DummyItemsStore();
+            DummyItemsStore dummyItemsStore = new DummyItemsStore(galaxyDao);
 
             //TODO
             //CurrentItemIDStore for switching the contetnts of single item view
