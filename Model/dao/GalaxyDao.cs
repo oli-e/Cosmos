@@ -9,6 +9,9 @@ using System.IO;
 
 namespace Cosmos
 {
+    /// <summary>
+    /// DAO class for managing a tree hierarchy model.
+    /// </summary>
     public class GalaxyDao
     {
         private const string DATA_FILE_NAME = "data";
@@ -26,12 +29,12 @@ namespace Cosmos
             return Galaxies.ContainsKey(id) ? Galaxies[id] : null;
         }
 
-        public void SaveGalaxy(Galaxy galaxy)
-        {
-            Galaxies[galaxy.Id] = galaxy;
-        }
+		public void AddGalaxy(Galaxy galaxy)
+		{
+			Galaxies[galaxy.Id] = galaxy;
+		}
 
-        public void RemoveGalaxy(long id)
+		public void RemoveGalaxy(long id)
         {
             Galaxies.Remove(id);
         }
@@ -48,7 +51,6 @@ namespace Cosmos
             IRemovable removable = (IRemovable) objToRemove;
             removable.Remove();
 		}
-
 
         public object FindById(long id)
         {
@@ -73,17 +75,26 @@ namespace Cosmos
 			{
                 List<Galaxy> galaxies = dataFileSaver.LoadAllFromFile<Galaxy>(DATA_FILE_NAME);
                 galaxies.ForEach(galaxy => Galaxies[galaxy.Id] = galaxy);
+                InitAllObjects();
             }
             catch (FileNotFoundException e)
 			{
-
+                // Ignore missing file
 			}
         }
 
-        // TODO saving data after every change
         public void SaveData()
         {
             dataFileSaver.SaveAllToFile(Galaxies.Values.ToList(), DATA_FILE_NAME);
         }
+
+        private void InitAllObjects()
+        {
+            foreach (KeyValuePair<long, Galaxy> entry in Galaxies)
+            {
+                entry.Value.Init();
+            }
+        }
+
     }
 }

@@ -10,21 +10,18 @@ using System.Windows;
 
 namespace Cosmos
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        private GalaxyDao galaxyDao = new GalaxyDao();
+        private readonly GalaxyDao galaxyDao = new GalaxyDao();
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            galaxyDao.LoadData();
+            InitializeApplicationData();
 
             //initialization of the common navigation store
             NavigationStore navigationStore = new NavigationStore();
             //Mimic database access
-            DummyItemsStore dummyItemsStore = new DummyItemsStore(galaxyDao);
+            ItemRepository dummyItemsStore = new ItemRepository(galaxyDao);
 
             //TODO
             //CurrentItemIDStore for switching the contetnts of single item view
@@ -47,6 +44,21 @@ namespace Cosmos
             };
             MainWindow.Show();
             base.OnStartup(e);
+        }
+
+        protected void OnExitApplication(object sender, ExitEventArgs e)
+        {
+            SaveApplicationData();
+		}
+
+        private void InitializeApplicationData()
+		{
+            galaxyDao.LoadData();
+        }
+
+        private void SaveApplicationData()
+        {
+            galaxyDao.SaveData();
         }
     }
 }

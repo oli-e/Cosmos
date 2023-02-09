@@ -27,14 +27,14 @@ namespace Cosmos.ViewModels
             }
         }
         private GetObjectPropertiesService getObjectPropertiesService = new GetObjectPropertiesService();
-        public SingleItemViewViewModel(DummyItemsStore d,CurrentItemIDStore currentItemIDStore)
+        public SingleItemViewViewModel(ItemRepository d,CurrentItemIDStore currentItemIDStore)
         {
             ObjectProperties.Clear();
             IdentifableObject ao = d.getItem(currentItemIDStore.CurrentItemID);
             ObjectProperties = getObjectPropertiesService.getObjectProperties(ao);
         }
 
-        public void reloadView(DummyItemsStore d, int id)
+        public void reloadView(ItemRepository d, int id)
         {
             ObjectProperties.Clear();
             //CommonObjectViewModel ao = d.getItem(id);

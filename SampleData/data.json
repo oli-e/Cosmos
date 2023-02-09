@@ -1,0 +1,158 @@
+[
+  {
+    "Stars": [
+      {
+        "PlanetarySystems": [
+          {
+            "Planets": [
+              {
+                "Moons": [
+                  {
+                    "DistanceFromPlanet": {
+                      "Value": 350000,
+                      "Unit": 1
+                    },
+                    "Mass": {
+                      "Value": 0.050000000000000003,
+                      "Unit": 0
+                    },
+                    "Size": {
+                      "Value": 40000,
+                      "Unit": 1
+                    },
+                    "DistanceFromEarth": {
+                      "Value": 200000000,
+                      "Unit": 1
+                    },
+                    "ApparentMagnitude": {
+                      "Value": 1,
+                      "Unit": 2
+                    },
+                    "Declination": {
+                      "Degress": 10,
+                      "Minutes": 5,
+                      "Seconds": 1
+                    },
+                    "RightAscension": {
+                      "Hours": 5,
+                      "Minutes": 3,
+                      "Seconds": 12
+                    },
+                    "Name": "Moon",
+                    "Id": 4
+                  }
+                ],
+                "Mass": {
+                  "Value": 1,
+                  "Unit": 0
+                },
+                "Size": {
+                  "Value": 130000,
+                  "Unit": 1
+                },
+                "DistanceFromEarth": {
+                  "Value": 200000000,
+                  "Unit": 1
+                },
+                "ApparentMagnitude": {
+                  "Value": 1,
+                  "Unit": 2
+                },
+                "Declination": {
+                  "Degress": 10,
+                  "Minutes": 5,
+                  "Seconds": 1
+                },
+                "RightAscension": {
+                  "Hours": 5,
+                  "Minutes": 3,
+                  "Seconds": 12
+                },
+                "Name": "Earth",
+                "Id": 3
+              }
+            ],
+            "Size": {
+              "Value": 130000,
+              "Unit": 1
+            },
+            "DistanceFromEarth": {
+              "Value": 200000000,
+              "Unit": 1
+            },
+            "ApparentMagnitude": {
+              "Value": 1,
+              "Unit": 2
+            },
+            "Declination": {
+              "Degress": 10,
+              "Minutes": 5,
+              "Seconds": 1
+            },
+            "RightAscension": {
+              "Hours": 5,
+              "Minutes": 3,
+              "Seconds": 12
+            },
+            "Name": "Solar system",
+            "Id": 2
+          }
+        ],
+        "Type": 0,
+        "Mass": {
+          "Value": 1,
+          "Unit": 0
+        },
+        "Size": {
+          "Value": 130000,
+          "Unit": 1
+        },
+        "DistanceFromEarth": {
+          "Value": 200000000,
+          "Unit": 1
+        },
+        "ApparentMagnitude": {
+          "Value": 1,
+          "Unit": 2
+        },
+        "Declination": {
+          "Degress": 10,
+          "Minutes": 5,
+          "Seconds": 1
+        },
+        "RightAscension": {
+          "Hours": 5,
+          "Minutes": 3,
+          "Seconds": 12
+        },
+        "Name": "Sun",
+        "Id": 1
+      }
+    ],
+    "Type": 0,
+    "Size": {
+      "Value": 130000,
+      "Unit": 1
+    },
+    "DistanceFromEarth": {
+      "Value": 200000000,
+      "Unit": 1
+    },
+    "ApparentMagnitude": {
+      "Value": 1,
+      "Unit": 2
+    },
+    "Declination": {
+      "Degress": 10,
+      "Minutes": 5,
+      "Seconds": 1
+    },
+    "RightAscension": {
+      "Hours": 5,
+      "Minutes": 3,
+      "Seconds": 12
+    },
+    "Name": "Milky Way",
+    "Id": 0
+  }
+]

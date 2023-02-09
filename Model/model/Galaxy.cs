@@ -21,7 +21,17 @@ namespace Cosmos
             GalaxyType type) : base(name, size, distanceFromEarth, apparentMagnitude, declination, rightAscension)
         {
             Type = type;
+            Init();
         }
+
+        public override void Init()
+        {
+			Stars.ForEach(star =>
+			{
+				star.SetGalaxy(this);
+				star.Init();
+			});
+		}
 
         public Star GetStar(long id)
         {
@@ -69,7 +79,7 @@ namespace Cosmos
 
 		public override void Remove()
 		{
-			
+			// Do nothing
 		}
 	}
 }
