@@ -23,6 +23,16 @@ namespace Cosmos
             StarType type) : base(name, size, mass, distanceFromEarth, apparentMagnitude, declination, rightAscension)
         {
             Type = type;
+            Init();
+        }
+
+        public override void Init()
+        {
+            PlanetarySystems.ForEach(planetarySystem =>
+            {
+                planetarySystem.SetStar(this);
+                planetarySystem.Init();
+            });
         }
 
         public void SetGalaxy(Galaxy galaxy)

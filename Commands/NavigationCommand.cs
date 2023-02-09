@@ -16,9 +16,9 @@ namespace Cosmos.Commands
         private readonly CurrentItemIDStore _currentItemIDStore;
 
         //to be removed
-        private readonly DummyItemsStore d;
+        private readonly ItemRepository d;
 
-        public NavigationCommand(NavigationStore navStore, CurrentItemIDStore currentItemIDStore,DummyItemsStore d)
+        public NavigationCommand(NavigationStore navStore, CurrentItemIDStore currentItemIDStore,ItemRepository d)
         {
             _navStore = navStore;
             //_createViewModel = createViewModel;

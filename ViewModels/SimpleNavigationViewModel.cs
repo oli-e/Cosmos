@@ -24,7 +24,7 @@ namespace Cosmos.ViewModels
         //public ICommand GoToMoonByID { get; } //Seems like won't be needed anymore
         public ICommand GoToHelp { get; }
         public ICommand GoToObjectByID { get; }
-        public SimpleNavigationViewModel(NavigationStore navigationStore, DummyItemsStore d, CurrentItemIDStore currentItemIDStore)
+        public SimpleNavigationViewModel(NavigationStore navigationStore, ItemRepository d, CurrentItemIDStore currentItemIDStore)
         {
                 //GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore,d, () => new HelpViewModel());
                 //GoToObjectByID = new NavigationCommand<SingleItemViewViewModel>(navigationStore, currentItemIDStore,d, () => new SingleItemViewViewModel(d, currentItemIDStore));
