@@ -15,7 +15,7 @@ namespace Cosmos.ViewModels
 
         public SimpleNavigationViewModel SimpleNavigationViewModel { get; set; }
 
-        public MainWindowViewModel(DummyItemsStore d,NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore) //CurrentItemStore
+        public MainWindowViewModel(ItemRepository d,NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore) //CurrentItemStore
         {
             _navigationStore = navigationStore;
             SimpleNavigationViewModel = new SimpleNavigationViewModel(navigationStore,d, currentItemIDStore);

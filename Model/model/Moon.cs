@@ -34,5 +34,10 @@ namespace Cosmos
 		{
             Planet.RemoveMoon(Id);
 		}
+
+		public override void Init()
+		{
+			// Do nothing
+		}
 	}
 }
