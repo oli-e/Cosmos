@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Commands
 {
-    public class GetItemByIDCommand : CommandBase
+    public class SaveCommand : CommandBase
     {
         public override void Execute(object parameter)
         {

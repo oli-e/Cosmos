@@ -1,42 +1,29 @@
 ﻿using Cosmos.Services;
 using Cosmos.Stores;
-using Cosmos.ViewModels.ObjectViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Cosmos.ViewModels
 {
     public class SingleItemViewViewModel : BaseViewModel
     {
-        //passing the dictionary in constructor or fetching object from a store
-        private Dictionary<string, string> _objectProperties = new Dictionary<string, string>();
-        public Dictionary<string, string> ObjectProperties
+        private ObservableCollection<CustomDictionaryClass> dict = new ObservableCollection<CustomDictionaryClass>();
+        public ObservableCollection<CustomDictionaryClass> Dict
         {
-            get 
-            { 
-                return _objectProperties; 
-            }
-            set 
-            { 
-                _objectProperties = value; 
-                OnPropertyChanged(nameof(ObjectProperties)); 
-            }
+            get { return dict; }
+            set { dict = value; OnPropertyChanged(nameof(Dict)); }
         }
+
         private GetObjectPropertiesService getObjectPropertiesService = new GetObjectPropertiesService();
         public SingleItemViewViewModel(DummyItemsStore d,CurrentItemIDStore currentItemIDStore)
         {
-            ObjectProperties.Clear();
+            Dict.Clear();
             IdentifableObject ao = d.getItem(currentItemIDStore.CurrentItemID);
-            ObjectProperties = getObjectPropertiesService.getObjectProperties(ao);
+            Dict = getObjectPropertiesService.getObjectProperties(ao);
         }
 
         public void reloadView(DummyItemsStore d, int id)
         {
-            ObjectProperties.Clear();
+            Dict.Clear();
             //CommonObjectViewModel ao = d.getItem(id);
             //ObjectProperties = ao.ObjectProperties;
         }

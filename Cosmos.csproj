@@ -84,8 +84,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\GetItemByIDCommand.cs" />
     <Compile Include="Commands\NavigationCommand.cs" />
+    <Compile Include="Commands\SaveCommand.cs" />
+    <Compile Include="Services\DTOs\GalaxyDTO.cs" />
+    <Compile Include="Services\DTOs\MoonDTO.cs" />
+    <Compile Include="Services\DTOs\PlanetarySystemDTO.cs" />
+    <Compile Include="Services\DTOs\PlanetDTO.cs" />
+    <Compile Include="Services\DTOs\StarDTO.cs" />
     <Compile Include="Model\model\abstract\AstronomicalObject.cs" />
     <Compile Include="Model\model\abstract\IdentifableObject.cs" />
     <Compile Include="Model\model\abstract\IRemovable.cs" />
@@ -102,19 +107,25 @@
     <Compile Include="Model\service\DataFileSaver.cs" />
     <Compile Include="Model\service\DataGenerator.cs" />
     <Compile Include="Model\dao\GalaxyDao.cs" />
+    <Compile Include="Services\CustomDictionaryClass.cs" />
     <Compile Include="Services\GetObjectPropertiesService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\WriteChangedobjectPropertiesService.cs" />
     <Compile Include="Stores\CurrentItemIDStore.cs" />
     <Compile Include="Stores\CurrentItemStore.cs" />
     <Compile Include="Stores\DummyItemsStore.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\EditViewModels\PlanetEditViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
-    <Compile Include="ViewModels\ObjectViewModels\CommonObjectViewModel.cs" />
     <Compile Include="ViewModels\SimpleNavigationViewModel.cs" />
     <Compile Include="ViewModels\SingleItemViewViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SpecificObjectsViewModels\GalaxyViewModel.cs" />
+    <Compile Include="ViewModels\SpecificObjectsViewModels\MoonViewModel.cs" />
+    <Compile Include="ViewModels\SpecificObjectsViewModels\PlanetarySystemViewModel.cs" />
+    <Compile Include="ViewModels\SpecificObjectsViewModels\PlanetViewModel.cs" />
+    <Compile Include="ViewModels\SpecificObjectsViewModels\StarViewModel.cs" />
     <Compile Include="Views\EditSpecificObjectView\EditPlanetUserControl.xaml.cs">
       <DependentUpon>EditPlanetUserControl.xaml</DependentUpon>
     </Compile>
@@ -126,6 +137,21 @@
     </Compile>
     <Compile Include="Views\SingleItemView.xaml.cs">
       <DependentUpon>SingleItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectsViews\GalaxyView.xaml.cs">
+      <DependentUpon>GalaxyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectsViews\MoonView.xaml.cs">
+      <DependentUpon>MoonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectsViews\PlanetarySystemView.xaml.cs">
+      <DependentUpon>PlanetarySystemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectsViews\PlanetView.xaml.cs">
+      <DependentUpon>PlanetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecificObjectsViews\StarView.xaml.cs">
+      <DependentUpon>StarView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +183,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SingleItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectsViews\GalaxyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectsViews\MoonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectsViews\PlanetarySystemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectsViews\PlanetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecificObjectsViews\StarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

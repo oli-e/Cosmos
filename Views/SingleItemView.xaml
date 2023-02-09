@@ -7,17 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView ItemsSource="{Binding ObjectProperties}"
+        <StackPanel Orientation="Vertical">
+            <ListView ItemsSource="{Binding Dict}"
                  SelectedValuePath="Key"
                  SelectionMode="Single">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Path=Key}"/>
-                        <TextBlock Text="{Binding Path=Value}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Path=Key}"/>
+                            <TextBox Text="{Binding Path=Value}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" IsEnabled="False" ></Button>
+                <Button Content="Cancel" IsEnabled="False" ></Button>
+            </StackPanel>
+            <Button Content="Add Children"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>

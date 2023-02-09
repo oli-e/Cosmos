@@ -7,7 +7,9 @@
         xmlns:views="clr-namespace:Cosmos.Views"
         xmlns:viewmodels="clr-namespace:Cosmos.ViewModels" 
         xmlns:editviews="clr-namespace:Cosmos.Views.EditSpecificObjectView"
-        xmlns:editviewmodels="clr-namespace:Cosmos.ViewModels.EditViewModels"
+        xmlns:editviewmodels="clr-namespace:Cosmos.ViewModels.EditViewModels" 
+        xmlns:specificobjectviews="clr-namespace:Cosmos.Views.SpecificObjectsViews"
+        xmlns:specificobjectsviewmodels="clr-namespace:Cosmos.ViewModels.SpecificObjectsViewModels"
         mc:Ignorable="d"
         Title="MainWindow">
     <Grid>
@@ -40,6 +42,21 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type editviewmodels:PlanetEditViewModel}">
                         <editviews:EditPlanetUserControl/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:GalaxyViewModel}">
+                        <specificobjectviews:GalaxyView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:StarViewModel}">
+                        <specificobjectviews:StarView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:PlanetViewModel}">
+                        <specificobjectviews:PlanetView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:PlanetarySystemViewModel}">
+                        <specificobjectviews:PlanetarySystemView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:MoonViewModel}">
+                        <specificobjectviews:MoonView/>
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
