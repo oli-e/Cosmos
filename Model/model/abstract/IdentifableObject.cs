@@ -25,6 +25,8 @@ namespace Cosmos
             return Id == id ? this : null;
         }
 
+        public abstract void Init();
+
         public abstract void Remove();
     }
 }

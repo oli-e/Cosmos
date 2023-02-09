@@ -20,7 +20,15 @@ namespace Cosmos
             Declination declination,
             RightAscension rightAscension) : base(name, size, distanceFromEarth, apparentMagnitude, declination, rightAscension)
         {
-
+            Init();
+        }
+        public override void Init()
+        {
+            Planets.ForEach(planet =>
+            {
+                planet.SetPlanetarySystem(this);
+                planet.Init();
+            });
         }
 
         public void SetStar(Star star)

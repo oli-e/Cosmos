@@ -106,7 +106,7 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Stores\CurrentItemIDStore.cs" />
     <Compile Include="Stores\CurrentItemStore.cs" />
-    <Compile Include="Stores\DummyItemsStore.cs" />
+    <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\EditViewModels\PlanetEditViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
@@ -184,10 +184,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SampleData\data.json" />
+    <None Include="SampleData\ids.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="SampleData\README.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
