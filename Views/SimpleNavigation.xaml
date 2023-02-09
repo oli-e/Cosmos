@@ -4,13 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Cosmos.Views" xmlns:viewmodels="clr-namespace:Cosmos.ViewModels"
+             xmlns:com="clr-namespace:Cosmos"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
+
+    <Grid x:Name="MyGrid">
+        <StackPanel Name="MyStack" MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
             <Button Content="Planet (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="0"/>
             <Button Content="Moon (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="1"/>
             <Button Content="Help" Command="{Binding GoToHelp}"/>
         </StackPanel>
+        <TreeView Name="MyTree" SelectedItemChanged="TreeView_SelectedItemChanged" Tag="{Binding GoToObjectByID}"  ItemsSource="{Binding ObjectProperties}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type com:IdentifableObject}">
+                    <TextBlock Text="{Binding Name}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
     </Grid>
 </UserControl>

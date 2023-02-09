@@ -12,7 +12,7 @@ namespace Cosmos.Stores
 	{
 		public List<CommonObjectViewModel> dummy_list;
 		private DataGenerator dataGenerator = new DataGenerator();
-		private GalaxyDao galaxyDao;
+		public GalaxyDao galaxyDao;
 
 		public DummyItemsStore(GalaxyDao galaxyDao)
 		{
