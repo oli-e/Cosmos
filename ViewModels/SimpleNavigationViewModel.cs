@@ -50,9 +50,9 @@ namespace Cosmos.ViewModels
         public ICommand GoToObjectByID { get; }
         public SimpleNavigationViewModel(NavigationStore navigationStore, ItemRepository d, CurrentItemIDStore currentItemIDStore)
         {
-            dlocal = d;
             GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore, d);
             GoToObjectByID = new NavigationCommand<BaseViewModel>(navigationStore, currentItemIDStore, d);
+            dlocal = d;
 
             foreach(Galaxy g in d.getData())
             {
