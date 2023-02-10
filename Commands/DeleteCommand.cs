@@ -38,6 +38,30 @@ namespace Cosmos.Commands
                 //starViewModel.CanSave = false;
                 //starViewModel.CanDiscard = false;
             }
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.PlanetarySystemViewModel")
+            {
+                PlanetarySystemViewModel planetarySystemViewModel = (PlanetarySystemViewModel)_baseViewModel;
+                _itemRepository.RemoveItem(planetarySystemViewModel.PlanetarySystem.Id);
+
+                //starViewModel.CanSave = false;
+                //starViewModel.CanDiscard = false;
+            }
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.PlanetViewModel")
+            {
+                PlanetViewModel planetViewModel = (PlanetViewModel)_baseViewModel;
+                _itemRepository.RemoveItem(planetViewModel.Planet.Id);
+
+                //starViewModel.CanSave = false;
+                //starViewModel.CanDiscard = false;
+            }
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.MoonViewModel")
+            {
+                MoonViewModel moonViewModel = (MoonViewModel)_baseViewModel;
+                _itemRepository.RemoveItem(moonViewModel.Moon.Id);
+
+                //starViewModel.CanSave = false;
+                //starViewModel.CanDiscard = false;
+            }
         }
     }
 }

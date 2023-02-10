@@ -55,6 +55,22 @@ namespace Cosmos.Commands
                         new RightAscension(0, 0, 0)));
                 System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
             }
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.PlanetViewModel")
+            {
+                PlanetViewModel planetViewModel = (PlanetViewModel)_baseViewModel;
+                planetViewModel.Planet.AddMoon(
+                    new Moon(
+                        "Name",
+                        new UnitValue<long>(0, Unit.KM),
+                        new UnitValue<double>(0, Unit.SUN_MASS),
+                        new UnitValue<long>(0, Unit.KM),
+                        new UnitValue<double>(0, Unit.MAGNITUDE),
+                        new Declination(0, 0, 0),
+                        new RightAscension(0, 0, 0),
+                        new UnitValue<long>(0,Unit.KM))
+                    );
+                System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
+            }
         }
     }
 }
