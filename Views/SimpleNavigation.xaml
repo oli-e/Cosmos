@@ -8,8 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
-            <Button Content="Planet (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="0"/>
-            <Button Content="Moon (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="1"/>
+			<Button Content="Galaxy (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="0"/>
+			<Button Content="Sun (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="1"/>
+			<Button Content="Planetary system (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="2"/>
+			<Button Content="Planet (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="3"/>
+			<Button Content="Planet 2 (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="5"/>
+			<Button Content="Moon (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="4"/>
             <Button Content="Help" Command="{Binding GoToHelp}"/>
         </StackPanel>
     </Grid>

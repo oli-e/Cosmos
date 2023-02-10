@@ -10,6 +10,8 @@ namespace Cosmos
     {
         SUN_MASS,
         KM,
-        MAGNITUDE
+        MAGNITUDE,
+        KG,
+        LIGHT_YEAR
     }
 }

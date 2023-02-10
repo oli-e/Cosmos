@@ -31,14 +31,42 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             }
         }
         public long Size {get; set;}
-        public string Size_desc { get; set;}
+        public string SizeDesc { get; set;}
+
+        public long DistanceFromEarth { get; set; }
+        public string DistanceFromEarthDesc { get; set; }
+
+        public double ApparentMagnitude { get; set; }
+        public string ApparentMagnitudeDesc { get; set; }
+
+        // TODO może da się to zrobić jakoś bardziej fancy (te deklinacje i rektascensje)?
+        public sbyte DeclinationDegress { get; set; }
+        public byte DeclinationMinutes { get; set; }
+        public double DeclinationSeconds { get; set; }
+
+        public sbyte RightAscensionHours { get; set; }
+        public byte RightAscensionMinutes { get; set; }
+        public double RightAscensionSeconds { get; set; }
+
+        public string Type { get; set; }
 
         public GalaxyViewModel(ItemRepository d, int id) {
             _galaxy = (Galaxy)d.getItem(id);
             _name = _galaxy.Name;
             Size = _galaxy.Size.Get();
-            Size_desc = _galaxy.Size.GetUnit().ToString();
-            
+            SizeDesc = _galaxy.Size.GetUnit().ToString();
+            DistanceFromEarth = _galaxy.DistanceFromEarth.Get();
+            DistanceFromEarthDesc = _galaxy.DistanceFromEarth.GetUnit().ToString();
+            ApparentMagnitude = _galaxy.ApparentMagnitude.Get();
+            ApparentMagnitudeDesc = _galaxy.ApparentMagnitude.GetUnit().ToString();
+            DeclinationDegress = _galaxy.Declination.Degress;
+            DeclinationMinutes = _galaxy.Declination.Minutes; 
+            DeclinationSeconds = _galaxy.Declination.Seconds;
+            RightAscensionHours = _galaxy.RightAscension.Hours;
+            RightAscensionMinutes = _galaxy.RightAscension.Minutes;
+            RightAscensionSeconds = _galaxy.RightAscension.Seconds;
+            Type = _galaxy.Type.ToString();
+
             SaveCommand = new SaveCommand(this);
             DiscardChanges = new DiscardChangesCommand(this);
             AddChild = new AddChildCommand(this);

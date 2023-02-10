@@ -42,11 +42,7 @@ namespace Cosmos.Commands
                 StarViewModel starViewModel = (StarViewModel)_baseViewModel;
                 starViewModel.Star.AddPlanetarySystem(new PlanetarySystem(
                     "Name",
-                    new UnitValue<long>(0,Unit.KM),
-                    new UnitValue<long>(0,Unit.KM),
-                    new UnitValue<double>(0,Unit.MAGNITUDE),
-                    new Declination(0, 0, 0),
-                    new RightAscension(0, 0, 0)));
+                    new UnitValue<long>(0,Unit.KM)));
                 System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
 
                 //starViewModel.CanSave = false;

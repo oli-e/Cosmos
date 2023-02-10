@@ -8,14 +8,59 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <Label Name="Name" Content="Name"/>
-                <Label Name="Name_Value" Content="{Binding Name}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Name="Size" Content="Size"/>
-                <Label Name="Size_Value" Content="{Binding Size}"/>
-            </StackPanel>
-        </StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Name" Content="Name"/>
+				<TextBox Name="Name_Value" Text="{Binding Name,Mode=TwoWay}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Size" Content="Size"/>
+				<TextBox Name="Size_Value" Text="{Binding Size}"/>
+				<Label Name="Size_Unit" Content ="{Binding SizeDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Mass" Content="Mass"/>
+				<TextBox Name="Mass_Value" Text="{Binding Mass}"/>
+				<Label Name="Mass_Unit" Content ="{Binding MassDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DistanceFromEarth" Content="Distance from Earth"/>
+				<TextBox Name="DistanceFromEarth_Value" Text="{Binding DistanceFromEarth}"/>
+				<Label Name="DistanceFromEarth_Unit" Content ="{Binding DistanceFromEarthDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="ApparentMagnitude" Content="Apparent magnitude"/>
+				<TextBox Name="ApparentMagnitude_Value" Text="{Binding ApparentMagnitude}"/>
+				<Label Name="ApparentMagnitude_Unit" Content ="{Binding ApparentMagnitudeDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationDegress" Content="Declination degress"/>
+				<TextBox Name="DeclinationDegress_Value" Text="{Binding DeclinationDegress}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationMinutes" Content="Declination minutes"/>
+				<TextBox Name="DeclinationMinutes_Value" Text="{Binding DeclinationMinutes}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationSeconds" Content="Declination seconds"/>
+				<TextBox Name="DeclinationSeconds_Value" Text="{Binding DeclinationSeconds}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionHours" Content="Right ascension degress"/>
+				<TextBox Name="RightAscensionHours_Value" Text="{Binding RightAscensionHours}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionMinutes" Content="Right ascension minutes"/>
+				<TextBox Name="RightAscensionMinutes_Value" Text="{Binding RightAscensionMinutes}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionSeconds" Content="Right ascension seconds"/>
+				<TextBox Name="RightAscensionSeconds_Value" Text="{Binding RightAscensionSeconds}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DistanceFromPlanet" Content="Distance from planet"/>
+				<TextBox Name="DistanceFromPlanet_Value" Text="{Binding DistanceFromPlanet}"/>
+				<Label Name="DistanceFromPlanet_Unit" Content ="{Binding DistanceFromPlanetDesc}"/>
+			</StackPanel>
+		</StackPanel>
     </Grid>
 </UserControl>

@@ -33,11 +33,7 @@ namespace Cosmos
                 );
             PlanetarySystem solarSystem = new PlanetarySystem(
                 "Solar system",
-                UnitValue<long>.Of(130_000, Unit.KM),
-                UnitValue<long>.Of(200_000_000, Unit.KM),
-                UnitValue<double>.Of(1, Unit.MAGNITUDE),
-                new Declination(10, 5, 1),
-                new RightAscension(5, 3, 12)
+                UnitValue<long>.Of(130_000, Unit.KM)
                 );
             Planet earth = new Planet(
                 "Earth",
