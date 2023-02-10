@@ -1,4 +1,5 @@
-﻿using Cosmos.ViewModels;
+﻿using Cosmos.Stores;
+using Cosmos.ViewModels;
 using Cosmos.ViewModels.SpecificObjectsViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,17 @@ namespace Cosmos.Commands
     public class AddChildCommand : CommandBase
     {
         private BaseViewModel _baseViewModel;
-        public AddChildCommand(BaseViewModel baseViewModel)
+        private TreeViewStore _treeViewStore;
+        private NavigationStore _navigationStore;
+        private ItemRepository _itemRepository;
+        private CurrentItemIDStore _currentItemIDStore;
+        public AddChildCommand(BaseViewModel baseViewModel, TreeViewStore treeViewStore, NavigationStore navigationStore, ItemRepository itemRepository, CurrentItemIDStore currentItemIDStore)
         {
             _baseViewModel = baseViewModel;
+            _treeViewStore = treeViewStore;
+            _navigationStore = navigationStore;
+            _currentItemIDStore = currentItemIDStore;
+            _itemRepository = itemRepository;
             System.Diagnostics.Debug.WriteLine($"Checking Types");
             System.Diagnostics.Debug.WriteLine(baseViewModel.GetType());
         }
@@ -71,6 +80,7 @@ namespace Cosmos.Commands
                     );
                 System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
             }
+            _treeViewStore.CurrentSimpleNavigationViewModel = new SimpleNavigationViewModel(_navigationStore, _itemRepository, _treeViewStore, _currentItemIDStore);
         }
     }
 }

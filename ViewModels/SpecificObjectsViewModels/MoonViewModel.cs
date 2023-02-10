@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -236,9 +237,9 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
                 }
             }
         }
-        public MoonViewModel(ItemRepository itemRepository, int id)
+        public MoonViewModel(ItemRepository d, NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore, TreeViewStore treeViewStore)
         {
-            Moon moon = (Moon)itemRepository.getItem(id);
+            Moon moon = (Moon)d.getItem(currentItemIDStore.CurrentItemID);
             _moon = moon;
             Name = moon.Name;
             Size = moon.Size.Get();
@@ -257,15 +258,13 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             RightAscensionSeconds = moon.RightAscension.Seconds;
             DistanceFromPlanet = moon.DistanceFromPlanet.Get();
             DistanceFromPlanetDesc = moon.DistanceFromPlanet.GetUnit().ToString();
-            SaveCommand = new SaveCommand(this);
+            SaveCommand = new SaveCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
             SaveCommand.CanExecute(false);
             DiscardChanges = new DiscardChangesCommand(this);
-            AddChild = new AddChildCommand(this);
-            Delete = new DeleteCommand(this, itemRepository);
+            Delete = new DeleteCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
         }
         public ICommand SaveCommand { get; set; }
         public ICommand DiscardChanges { get; set; }
-        public ICommand AddChild { get; set; }
         public ICommand Delete { get; set; }
     }
 }

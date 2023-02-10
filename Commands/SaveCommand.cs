@@ -1,4 +1,5 @@
-﻿using Cosmos.ViewModels;
+﻿using Cosmos.Stores;
+using Cosmos.ViewModels;
 using Cosmos.ViewModels.SpecificObjectsViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,18 @@ namespace Cosmos.Commands
     public class SaveCommand : CommandBase
     {
         private BaseViewModel _baseViewModel;
+        private TreeViewStore _treeViewStore;
+        private NavigationStore _navigationStore;
+        private ItemRepository _itemRepository;
+        private CurrentItemIDStore _currentItemIDStore;
         public bool CanSave { get; set; } = true;
-        public SaveCommand(BaseViewModel baseViewModel)
+        public SaveCommand(BaseViewModel baseViewModel,TreeViewStore treeViewStore,NavigationStore navigationStore,ItemRepository itemRepository, CurrentItemIDStore currentItemIDStore)
         {
             _baseViewModel = baseViewModel;
+            _treeViewStore = treeViewStore;
+            _navigationStore = navigationStore;
+            _currentItemIDStore = currentItemIDStore;
+            _itemRepository = itemRepository;
             System.Diagnostics.Debug.WriteLine($"Checking Types");
             System.Diagnostics.Debug.WriteLine(baseViewModel.GetType());
         }
@@ -101,6 +110,7 @@ namespace Cosmos.Commands
 
                 moonViewModel.Moon.DistanceFromPlanet.Set(moonViewModel.DistanceFromPlanet);
             }
+            _treeViewStore.CurrentSimpleNavigationViewModel = new SimpleNavigationViewModel(_navigationStore, _itemRepository, _treeViewStore, _currentItemIDStore);
 
         }
         public override bool CanExecute(object parameter)

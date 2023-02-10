@@ -118,6 +118,7 @@
     <Compile Include="Stores\CurrentItemStore.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="Stores\TreeViewStore.cs" />
     <Compile Include="ViewModels\EditViewModels\PlanetEditViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\SimpleNavigationViewModel.cs" />

@@ -21,6 +21,9 @@ namespace Cosmos
 
             //initialization of the common navigation store
             NavigationStore navigationStore = new NavigationStore();
+
+            //initialization of the TreeView navigation store
+            TreeViewStore treeViewStore = new TreeViewStore();
             //Mimic database access
             ItemRepository dummyItemsStore = new ItemRepository(galaxyDao);
 
@@ -35,13 +38,14 @@ namespace Cosmos
             System.Diagnostics.Debug.WriteLine(currentItemStore.CurrentItem);
 
             //initialization of view at the beginning of the application
-            navigationStore.CurrentViewModel = new GalaxyViewModel(dummyItemsStore,currentItemIDStore.CurrentItemID);
+            navigationStore.CurrentViewModel = new GalaxyViewModel(dummyItemsStore,navigationStore,currentItemIDStore,treeViewStore);
+            treeViewStore.CurrentSimpleNavigationViewModel = new SimpleNavigationViewModel(navigationStore,dummyItemsStore,treeViewStore,currentItemIDStore);
 
             //overriding the startup of the main window
             MainWindow = new MainWindow()
             {
                 //TODO swap dummy for CurrentItem
-                DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore, currentItemIDStore)
+                DataContext = new MainWindowViewModel(dummyItemsStore, navigationStore,treeViewStore, currentItemIDStore)
             };
             MainWindow.Show();
             base.OnStartup(e);

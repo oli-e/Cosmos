@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -210,8 +211,9 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
                 }
             }
         }
-        public PlanetViewModel(ItemRepository itemRepository, int id) {
-            _planet = (Planet)itemRepository.getItem(id);
+        public PlanetViewModel(ItemRepository d, NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore, TreeViewStore treeViewStore)
+        {
+            _planet = (Planet)d.getItem(currentItemIDStore.CurrentItemID);
             Name = _planet.Name;
             Size = _planet.Size.Get();
             SizeDesc = _planet.Size.GetUnit().ToString();
@@ -227,11 +229,11 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             RightAscensionHours = _planet.RightAscension.Hours;
             RightAscensionMinutes = _planet.RightAscension.Minutes;
             RightAscensionSeconds = _planet.RightAscension.Seconds;
-            SaveCommand = new SaveCommand(this);
+            SaveCommand = new SaveCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
             SaveCommand.CanExecute(false);
             DiscardChanges = new DiscardChangesCommand(this);
-            AddChild = new AddChildCommand(this);
-            Delete = new DeleteCommand(this, itemRepository);
+            AddChild = new AddChildCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
+            Delete = new DeleteCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
         }
         public ICommand SaveCommand { get; set; }
         public ICommand DiscardChanges { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -212,8 +213,9 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
         }
         public string Type { get; set; }
 
-        public StarViewModel(ItemRepository itemRepository, int id) {
-            _star = (Star)itemRepository.getItem(id);
+        public StarViewModel(ItemRepository d, NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore, TreeViewStore treeViewStore)
+        {
+            _star = (Star)d.getItem(currentItemIDStore.CurrentItemID);
             _name = Star.Name;
             Size = Star.Size.Get();
             SizeDesc = Star.Size.GetUnit().ToString();
@@ -231,11 +233,11 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             RightAscensionSeconds = Star.RightAscension.Seconds;
             Type = Star.Type.ToString();
 
-            SaveCommand = new SaveCommand(this);
+            SaveCommand = new SaveCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
             SaveCommand.CanExecute(false);
             DiscardChanges = new DiscardChangesCommand(this);
-            AddChild = new AddChildCommand(this);
-            Delete = new DeleteCommand(this, itemRepository);
+            AddChild = new AddChildCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
+            Delete = new DeleteCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
         }
         public ICommand SaveCommand { get; set; }
         public ICommand DiscardChanges { get; set; }

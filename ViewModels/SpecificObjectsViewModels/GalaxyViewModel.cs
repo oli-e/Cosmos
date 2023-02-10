@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -169,9 +170,9 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
 
         public string Type { get; set; }
 
-        public GalaxyViewModel(ItemRepository d, int id)
+        public GalaxyViewModel(ItemRepository d,NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore,TreeViewStore treeViewStore)
         {
-            _galaxy = (Galaxy)d.getItem(id);
+            _galaxy = (Galaxy)d.getItem(currentItemIDStore.CurrentItemID);
             Name = _galaxy.Name;
             Size = _galaxy.Size.Get();
             SizeDesc = _galaxy.Size.GetUnit().ToString();
@@ -187,11 +188,11 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             RightAscensionSeconds = _galaxy.RightAscension.Seconds;
             Type = _galaxy.Type.ToString();
 
-            SaveCommand = new SaveCommand(this);
+            SaveCommand = new SaveCommand(this,treeViewStore,navigationStore,d,currentItemIDStore);
             SaveCommand.CanExecute(false);
             DiscardChanges = new DiscardChangesCommand(this);
-            AddChild = new AddChildCommand(this);
-            Delete = new DeleteCommand(this, d);
+            AddChild = new AddChildCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
+            Delete = new DeleteCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
         }
 
         public ICommand SaveCommand { get; set; }

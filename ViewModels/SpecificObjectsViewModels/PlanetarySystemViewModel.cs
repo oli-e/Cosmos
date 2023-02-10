@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,16 +54,17 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             }
         }
 
-        public PlanetarySystemViewModel(ItemRepository d, int id) {
-            _planetarySystem = (PlanetarySystem)d.getItem(id);
+        public PlanetarySystemViewModel(ItemRepository d, NavigationStore navigationStore, CurrentItemIDStore currentItemIDStore, TreeViewStore treeViewStore)
+        {
+            _planetarySystem = (PlanetarySystem)d.getItem(currentItemIDStore.CurrentItemID);
             Name = PlanetarySystem.Name;
             Size = PlanetarySystem.Size.Get();
             SizeDesc = PlanetarySystem.Size.GetUnit().ToString();
-            SaveCommand = new SaveCommand(this);
+            SaveCommand = new SaveCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
             SaveCommand.CanExecute(false);
             DiscardChanges = new DiscardChangesCommand(this);
-            AddChild = new AddChildCommand(this);
-            Delete = new DeleteCommand(this, d);
+            AddChild = new AddChildCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
+            Delete = new DeleteCommand(this, treeViewStore, navigationStore, d, currentItemIDStore);
         }
         public ICommand SaveCommand { get; set; }
         public ICommand DiscardChanges { get; set; }
