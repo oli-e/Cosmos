@@ -15,6 +15,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label Name="Size" Content="Size"/>
                 <TextBox Name="Size_Value" Text="{Binding Size}"/>
+                <Label Name="Size_Unit" Content ="{Binding Size_desc}"/>
             </StackPanel>
             <Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
             <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>

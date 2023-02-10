@@ -30,12 +30,14 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
                 }
             }
         }
-        public string Size {get; set;}
+        public long Size {get; set;}
+        public string Size_desc { get; set;}
 
         public GalaxyViewModel(ItemRepository d, int id) {
             _galaxy = (Galaxy)d.getItem(id);
             _name = _galaxy.Name;
-            Size = _galaxy.Size.Get().ToString();
+            Size = _galaxy.Size.Get();
+            Size_desc = _galaxy.Size.GetUnit().ToString();
             
             SaveCommand = new SaveCommand(this);
             DiscardChanges = new DiscardChangesCommand(this);
