@@ -31,7 +31,6 @@ namespace Cosmos.ViewModels
          * https://stackoverflow.com/questions/42591273/how-to-identify-which-button-clicked-mvvm -> how to use the Execute method overriding in Navigation Command class
          */
 
-
         private ObservableCollection<IdentifableObject> _objectProperties = new ObservableCollection<IdentifableObject>();
         public ObservableCollection<IdentifableObject> ObjectProperties
         {
@@ -60,12 +59,6 @@ namespace Cosmos.ViewModels
                 _objectProperties.Add(g);
             }
 
-          //  _objectProperties = new ObservableCollection<Person>()
-          //  {
-          //  new Person() { Name = "Prabhat",Address = "India", Id="0"},
-          //
-          //  new Person() { Name = "Smith",Address = "US", Id="1"}
-        //};
         }
     }
 }
