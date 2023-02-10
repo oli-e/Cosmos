@@ -12,7 +12,6 @@
         <StackPanel Name="MyStack" MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
             <Button Content="Planet (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="0"/>
             <Button Content="Moon (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="1"/>
-            <Button Content="Help" Command="{Binding GoToHelp}"/>
         </StackPanel>
         <TreeView Name="MyTree" SelectedItemChanged="TreeView_SelectedItemChanged" Tag="{Binding GoToObjectByID}" ItemsSource="{Binding ObjectProperties}" >
             <TreeView.Resources>

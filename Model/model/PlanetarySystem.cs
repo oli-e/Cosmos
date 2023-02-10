@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Cosmos
 {
-    public class PlanetarySystem : BasicAstronomicalObject, IParent<Planet>, IRemovable
+    public class PlanetarySystem : NamedObject, IParent<Planet>, IRemovable
     {
         private Star Star { get; set; }
+
+        public UnitValue<long> Size { get; set; }
 
         public List<Planet> Planets { get; set; } = new List<Planet>();
 
         public PlanetarySystem(
             string name,
-            UnitValue<long> size,
-            UnitValue<long> distanceFromEarth,
-            UnitValue<double> apparentMagnitude,
-            Declination declination,
-            RightAscension rightAscension) : base(name, size, distanceFromEarth, apparentMagnitude, declination, rightAscension)
+            UnitValue<long> size) : base(name)
         {
+            Size = size;
             Init();
         }
         public override void Init()

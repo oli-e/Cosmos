@@ -9,6 +9,9 @@ namespace Cosmos.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        public bool CanSave { get; set; }
+        public bool CanDiscard { get; set; } 
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)

@@ -83,7 +83,7 @@ namespace Cosmos.ViewModels.EditViewModels
             get { return _planetObject.RightAscension.Hours.ToString(); }
             set
             {
-                _planetObject.RightAscension.Hours = byte.Parse(value);
+                _planetObject.RightAscension.Hours = sbyte.Parse(value);
                 OnPropertyChanged(nameof(RightAscension));
             }
         }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Services
 {
-    /*public class SingleItemNavigationService<TViewModel> where TViewModel : BaseViewModel
+    public class NavigationService<TViewModel> where TViewModel : BaseViewModel
     {
         private readonly NavigationStore _singleItemViewNavigationStore;
         private readonly Func<TViewModel> _createSingleItemViewModel;
 
-        public SingleItemNavigationService(NavigationStore navStore, Func<TViewModel> createViewModel)
+        public NavigationService(NavigationStore navStore, Func<TViewModel> createViewModel)
         {
             _singleItemViewNavigationStore = navStore;
             _createSingleItemViewModel = createViewModel;
@@ -23,5 +23,5 @@ namespace Cosmos.Services
         {
             _singleItemViewNavigationStore.CurrentViewModel = _createSingleItemViewModel();
         }
-    }*/
+    }
 }

@@ -1,5 +1,4 @@
 ﻿using Cosmos.ViewModels;
-using Cosmos.ViewModels.ObjectViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

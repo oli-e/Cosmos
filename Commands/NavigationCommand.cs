@@ -1,25 +1,24 @@
-﻿using Cosmos.Services;
-using Cosmos.Stores;
+﻿using Cosmos.Stores;
 using Cosmos.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Cosmos.ViewModels.SpecificObjectsViewModels;
 
 namespace Cosmos.Commands
 {
     public class NavigationCommand<TViewModel> : CommandBase where TViewModel : BaseViewModel
     {
         private readonly NavigationStore _navStore;
-        private readonly Func<TViewModel> _createViewModel;
+        //private readonly Func<TViewModel> _createViewModel;
         private readonly CurrentItemIDStore _currentItemIDStore;
 
-        public NavigationCommand(NavigationStore navStore, CurrentItemIDStore currentItemIDStore,Func<TViewModel> createViewModel)
+        //to be removed
+        private readonly ItemRepository itemRepository;
+
+        public NavigationCommand(NavigationStore navStore, CurrentItemIDStore currentItemIDStore,ItemRepository itemRepository)
         {
             _navStore = navStore;
-            _createViewModel = createViewModel;
+            //_createViewModel = createViewModel;
             _currentItemIDStore = currentItemIDStore;
+            this.itemRepository = itemRepository;
         }
 
         public override void Execute(object parameter)
@@ -29,9 +28,36 @@ namespace Cosmos.Commands
                 System.Diagnostics.Debug.WriteLine($"Clicked: {parameter as string}");
                 string id = parameter as string;
                 _currentItemIDStore.CurrentItemID = int.Parse(id);
-                System.Diagnostics.Debug.WriteLine($"CurrentItemID: {_currentItemIDStore.CurrentItemID}");
+                IdentifableObject a = itemRepository.getItem(int.Parse(id));
+                string typeHint = a.GetType().ToString();
+                System.Diagnostics.Debug.WriteLine($"TypeHint: {typeHint}");
+
+                if (typeHint == "Cosmos.Galaxy")
+                {
+                    _navStore.CurrentViewModel = new GalaxyViewModel(itemRepository, int.Parse(id));
+                }
+                if (typeHint == "Cosmos.Star")
+                {
+                    _navStore.CurrentViewModel = new StarViewModel(itemRepository, int.Parse(id));
+                }
+                //TODO rewrite remaining ViewModels
+                if (typeHint == "Cosmos.Planet")
+                {
+                    _navStore.CurrentViewModel = new PlanetViewModel(itemRepository, int.Parse(id));
+                }
+                if (typeHint == "Cosmos.Moon")
+                {
+                    _navStore.CurrentViewModel = new MoonViewModel(itemRepository, int.Parse(id));
+                }
+                if (typeHint == "Cosmos.PlanetarySystem")
+                {
+                    _navStore.CurrentViewModel = new PlanetarySystemViewModel(itemRepository, int.Parse(id));
+                }
+                //System.Diagnostics.Debug.WriteLine($"CurrentItemID: {_currentItemIDStore.CurrentItemID}");
+                //TODO might be needed to add switching between views for each type
             }
-            _navStore.CurrentViewModel = _createViewModel();
+            //_navStore.CurrentViewModel = new SingleItemViewViewModel(d, _currentItemIDStore);
+            //_navStore.CurrentViewModel = _createViewModel();
         }
     }
 }
