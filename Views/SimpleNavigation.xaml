@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Cosmos.Views.SimpleNavigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cosmos.Views" xmlns:viewmodels="clr-namespace:Cosmos.ViewModels"
+             xmlns:com="clr-namespace:Cosmos"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid x:Name="MyGrid">
+        <StackPanel Name="MyStack" MaxWidth="100" MinWidth="50" HorizontalAlignment="Left" Margin="5 0 5 0">
+            <Button Content="Planet (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="0"/>
+            <Button Content="Moon (ByID)" Command="{Binding GoToObjectByID}" CommandParameter="1"/>
+        </StackPanel>
+        <TreeView Name="MyTree" SelectedItemChanged="TreeView_SelectedItemChanged" Tag="{Binding GoToObjectByID}" ItemsSource="{Binding ObjectProperties}" >
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type com:IdentifableObject}" ItemsSource="{Binding Stars}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type com:Star}" ItemsSource="{Binding PlanetarySystems}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type com:PlanetarySystem}" ItemsSource="{Binding Planets}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type com:Planet}" ItemsSource="{Binding Moons}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type com:Moon}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</UserControl>

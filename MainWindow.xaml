@@ -1,0 +1,65 @@
+﻿<Window x:Class="Cosmos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cosmos" 
+        xmlns:views="clr-namespace:Cosmos.Views"
+        xmlns:viewmodels="clr-namespace:Cosmos.ViewModels" 
+        xmlns:editviews="clr-namespace:Cosmos.Views.EditSpecificObjectView"
+        xmlns:editviewmodels="clr-namespace:Cosmos.ViewModels.EditViewModels" 
+        xmlns:specificobjectviews="clr-namespace:Cosmos.Views.SpecificObjectsViews"
+        xmlns:specificobjectsviewmodels="clr-namespace:Cosmos.ViewModels.SpecificObjectsViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- //TODO -->
+        <!-- Temporary Navigation, to be swapped with TreeView -->
+        <Grid Grid.Column="0" MinWidth="200">
+            <ContentControl Content="{Binding SimpleNavigationViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:SimpleNavigationViewModel}">
+                        <views:SimpleNavigation/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+
+        <!-- Switch instruction for particular viewmodels and views -->
+        <Grid Grid.Column="1">
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:SingleItemViewViewModel}">
+                        <views:SingleItemView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:HelpViewModel}">
+                        <views:HelpView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type editviewmodels:PlanetEditViewModel}">
+                        <editviews:EditPlanetUserControl/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:GalaxyViewModel}">
+                        <specificobjectviews:GalaxyView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:StarViewModel}">
+                        <specificobjectviews:StarView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:PlanetViewModel}">
+                        <specificobjectviews:PlanetView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:PlanetarySystemViewModel}">
+                        <specificobjectviews:PlanetarySystemView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type specificobjectsviewmodels:MoonViewModel}">
+                        <specificobjectviews:MoonView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+    </Grid>
+</Window>

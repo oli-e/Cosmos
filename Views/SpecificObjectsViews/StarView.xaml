@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Cosmos.Views.SpecificObjectsViews.StarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cosmos.Views.SpecificObjectsViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Name" Content="Name"/>
+				<TextBox Name="Name_Value" Text="{Binding Name,Mode=TwoWay}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Size" Content="Size"/>
+				<TextBox Name="Size_Value" Text="{Binding Size}"/>
+				<Label Name="Size_Unit" Content ="{Binding SizeDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="Mass" Content="Mass"/>
+				<TextBox Name="Mass_Value" Text="{Binding Mass}"/>
+				<Label Name="Mass_Unit" Content ="{Binding MassDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DistanceFromEarth" Content="Distance from Earth"/>
+				<TextBox Name="DistanceFromEarth_Value" Text="{Binding DistanceFromEarth}"/>
+				<Label Name="DistanceFromEarth_Unit" Content ="{Binding DistanceFromEarthDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="ApparentMagnitude" Content="Apparent magnitude"/>
+				<TextBox Name="ApparentMagnitude_Value" Text="{Binding ApparentMagnitude}"/>
+				<Label Name="ApparentMagnitude_Unit" Content ="{Binding ApparentMagnitudeDesc}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationDegress" Content="Declination degress"/>
+				<TextBox Name="DeclinationDegress_Value" Text="{Binding DeclinationDegress}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationMinutes" Content="Declination minutes"/>
+				<TextBox Name="DeclinationMinutes_Value" Text="{Binding DeclinationMinutes}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="DeclinationSeconds" Content="Declination seconds"/>
+				<TextBox Name="DeclinationSeconds_Value" Text="{Binding DeclinationSeconds}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionHours" Content="Right ascension degress"/>
+				<TextBox Name="RightAscensionHours_Value" Text="{Binding RightAscensionHours}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionMinutes" Content="Right ascension minutes"/>
+				<TextBox Name="RightAscensionMinutes_Value" Text="{Binding RightAscensionMinutes}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<Label Name="RightAscensionSeconds" Content="Right ascension seconds"/>
+				<TextBox Name="RightAscensionSeconds_Value" Text="{Binding RightAscensionSeconds}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<!-- TODO to musi być combo do wybierania typów, nie String -->
+				<Label Name="Type" Content="Type"/>
+				<TextBox Name="Type_Value" Text="{Binding Type}"/>
+			</StackPanel>
+
+			<Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
+            <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
+            <Button Content="Add Child" Command="{Binding AddChild}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

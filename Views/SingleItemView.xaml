@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Cosmos.Views.SingleItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cosmos.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ListView ItemsSource="{Binding Dict}"
+                 SelectedValuePath="Key"
+                 SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Path=Key}"/>
+                            <TextBox Text="{Binding Path=Value}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save" IsEnabled="False" ></Button>
+                <Button Content="Cancel" IsEnabled="False" ></Button>
+            </StackPanel>
+            <Button Content="Add Children"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
