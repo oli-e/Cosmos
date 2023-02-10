@@ -11,7 +11,7 @@
         xmlns:specificobjectviews="clr-namespace:Cosmos.Views.SpecificObjectsViews"
         xmlns:specificobjectsviewmodels="clr-namespace:Cosmos.ViewModels.SpecificObjectsViewModels"
         mc:Ignorable="d"
-        Title="MainWindow">
+        Title="MainWindow" Width="550">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -31,7 +31,7 @@
         </Grid>
 
         <!-- Switch instruction for particular viewmodels and views -->
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" MinWidth="250">
             <ContentControl Content="{Binding CurrentViewModel}">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type viewmodels:SingleItemViewViewModel}">
