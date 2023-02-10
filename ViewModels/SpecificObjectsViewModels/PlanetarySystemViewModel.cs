@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Cosmos.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Cosmos.ViewModels.SpecificObjectsViewModels
 {
@@ -56,6 +58,15 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             Name = PlanetarySystem.Name;
             Size = PlanetarySystem.Size.Get();
             SizeDesc = PlanetarySystem.Size.GetUnit().ToString();
+            SaveCommand = new SaveCommand(this);
+            SaveCommand.CanExecute(false);
+            DiscardChanges = new DiscardChangesCommand(this);
+            AddChild = new AddChildCommand(this);
+            Delete = new DeleteCommand(this, d);
         }
+        public ICommand SaveCommand { get; set; }
+        public ICommand DiscardChanges { get; set; }
+        public ICommand AddChild { get; set; }
+        public ICommand Delete { get; set; }
     }
 }

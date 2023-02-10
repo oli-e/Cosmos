@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Cosmos.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Cosmos.ViewModels.SpecificObjectsViewModels
 {
@@ -225,6 +227,15 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
             RightAscensionHours = _planet.RightAscension.Hours;
             RightAscensionMinutes = _planet.RightAscension.Minutes;
             RightAscensionSeconds = _planet.RightAscension.Seconds;
+            SaveCommand = new SaveCommand(this);
+            SaveCommand.CanExecute(false);
+            DiscardChanges = new DiscardChangesCommand(this);
+            AddChild = new AddChildCommand(this);
+            Delete = new DeleteCommand(this, itemRepository);
         }
+        public ICommand SaveCommand { get; set; }
+        public ICommand DiscardChanges { get; set; }
+        public ICommand AddChild { get; set; }
+        public ICommand Delete { get; set; }
     }
 }

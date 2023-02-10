@@ -17,6 +17,10 @@
 				<TextBox Name="Size_Value" Text="{Binding Size}"/>
 				<Label Name="Size_Unit" Content ="{Binding SizeDesc}"/>
 			</StackPanel>
-		</StackPanel>
+            <Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
+            <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
+            <Button Content="AddChild" Command="{Binding AddChild}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

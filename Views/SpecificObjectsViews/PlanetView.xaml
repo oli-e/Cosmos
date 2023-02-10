@@ -56,6 +56,10 @@
 				<Label Name="RightAscensionSeconds" Content="Right ascension seconds"/>
 				<TextBox Name="RightAscensionSeconds_Value" Text="{Binding RightAscensionSeconds}"/>
 			</StackPanel>
-		</StackPanel>
+            <Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
+            <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
+            <Button Content="AddChild" Command="{Binding AddChild}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

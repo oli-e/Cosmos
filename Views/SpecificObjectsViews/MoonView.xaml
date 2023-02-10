@@ -61,6 +61,10 @@
 				<TextBox Name="DistanceFromPlanet_Value" Text="{Binding DistanceFromPlanet}"/>
 				<Label Name="DistanceFromPlanet_Unit" Content ="{Binding DistanceFromPlanetDesc}"/>
 			</StackPanel>
-		</StackPanel>
+            <Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
+            <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
+            <Button Content="AddChild" Command="{Binding AddChild}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

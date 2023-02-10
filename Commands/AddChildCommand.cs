@@ -48,6 +48,23 @@ namespace Cosmos.Commands
                 //starViewModel.CanSave = false;
                 //starViewModel.CanDiscard = false;
             }
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.PlanetarySystemViewModel")
+            {
+                PlanetarySystemViewModel planetarySystemViewModel = (PlanetarySystemViewModel)_baseViewModel;
+                planetarySystemViewModel.PlanetarySystem.AddPlanet(
+                    new Planet(
+                        "Name",
+                        new UnitValue<long>(0, Unit.KM),
+                        new UnitValue<double>(0, Unit.SUN_MASS),
+                        new UnitValue<long>(0, Unit.KM),
+                        new UnitValue<double>(0, Unit.MAGNITUDE),
+                        new Declination(0, 0, 0),
+                        new RightAscension(0, 0, 0)));
+                System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
+
+                //starViewModel.CanSave = false;
+                //starViewModel.CanDiscard = false;
+            }
         }
     }
 }
