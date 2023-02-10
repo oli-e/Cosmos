@@ -38,7 +38,7 @@ namespace Cosmos.Views
             IdentifableObject selectedItem = (IdentifableObject)treeView.SelectedItem;
             if (selectedItem.Id != null)
             {
-                command.Execute(selectedItem.Id);
+                command.Execute(selectedItem.Id.ToString());
             }
         }
 
