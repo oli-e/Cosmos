@@ -28,10 +28,9 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
         }
         public string Size { get; set; }
         public StarViewModel(ItemRepository itemRepository, int id) {
-            Star star = (Star)itemRepository.getItem(id);
-            _star = star;
-            _name = star.Name;
-            Size = star.Size.Get().ToString();
+            _star = (Star)itemRepository.getItem(id);
+            _name = Star.Name;
+            Size = Star.Size.Get().ToString();
 
             SaveCommand = new SaveCommand(this);
             DiscardChanges = new DiscardChangesCommand(this);

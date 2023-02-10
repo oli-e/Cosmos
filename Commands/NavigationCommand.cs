@@ -43,15 +43,15 @@ namespace Cosmos.Commands
                 //TODO rewrite remaining ViewModels
                 if (typeHint == "Cosmos.Planet")
                 {
-                    _navStore.CurrentViewModel = new PlanetViewModel((Planet)a);
+                    _navStore.CurrentViewModel = new PlanetViewModel(itemRepository, int.Parse(id));
                 }
                 if (typeHint == "Cosmos.Moon")
                 {
-                    _navStore.CurrentViewModel = new MoonViewModel((Moon)a);
+                    _navStore.CurrentViewModel = new MoonViewModel(itemRepository, int.Parse(id));
                 }
                 if (typeHint == "Cosmos.PlanetarySystem")
                 {
-                    _navStore.CurrentViewModel = new PlanetarySystemViewModel((PlanetarySystem)a);
+                    _navStore.CurrentViewModel = new PlanetarySystemViewModel(itemRepository, int.Parse(id));
                 }
                 //System.Diagnostics.Debug.WriteLine($"CurrentItemID: {_currentItemIDStore.CurrentItemID}");
                 //TODO might be needed to add switching between views for each type

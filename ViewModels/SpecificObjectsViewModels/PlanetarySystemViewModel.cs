@@ -8,11 +8,14 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
 {
     public class PlanetarySystemViewModel : BaseViewModel
     {
+        private PlanetarySystem _planetarySystem;
+        public PlanetarySystem PlanetarySystem => _planetarySystem;
         public string Name { get; set; }
         public string Size { get; set; }
-        public PlanetarySystemViewModel(PlanetarySystem planetarySystem) {
-            Name = planetarySystem.Name;
-            Size = planetarySystem.Size.Get().ToString();
+        public PlanetarySystemViewModel(ItemRepository d, int id) {
+            _planetarySystem = (PlanetarySystem)d.getItem(id);
+            Name = PlanetarySystem.Name;
+            Size = PlanetarySystem.Size.Get().ToString();
         }
     }
 }
