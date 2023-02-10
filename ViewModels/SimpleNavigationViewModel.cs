@@ -48,13 +48,15 @@ namespace Cosmos.ViewModels
         public ICommand GoToHelp { get; }
         public ItemRepository dlocal { get; }
         public ICommand GoToObjectByID { get; }
-        public SimpleNavigationViewModel(NavigationStore navigationStore, ItemRepository d, TreeViewStore treeViewStore, CurrentItemIDStore currentItemIDStore)
+        public ICommand AddGalaxyCommand { get; set; }
+        public SimpleNavigationViewModel(NavigationStore navigationStore, ItemRepository itemRepository, TreeViewStore treeViewStore, CurrentItemIDStore currentItemIDStore)
         {
-            GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore, d,treeViewStore);
-            GoToObjectByID = new NavigationCommand<BaseViewModel>(navigationStore, currentItemIDStore, d,treeViewStore);
-            dlocal = d;
+            GoToHelp = new NavigationCommand<HelpViewModel>(navigationStore, currentItemIDStore, itemRepository,treeViewStore);
+            GoToObjectByID = new NavigationCommand<BaseViewModel>(navigationStore, currentItemIDStore, itemRepository,treeViewStore);
+            AddGalaxyCommand = new AddGalaxyCommand(treeViewStore,navigationStore,itemRepository,currentItemIDStore);
+            dlocal = itemRepository;
 
-            foreach(Galaxy g in d.getData())
+            foreach(Galaxy g in itemRepository.getData())
             {
                 _objectProperties.Add(g);
             }
