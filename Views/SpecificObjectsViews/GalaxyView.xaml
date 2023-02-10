@@ -10,7 +10,7 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <Label Name="Name" Content="Name"/>
-                <TextBox Name="Name_Value" Text="{Binding Name,Mode=TwoWay}" />
+                <TextBox Name="Name_Value" Text="{Binding Name}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Name="Size" Content="Size"/>
@@ -59,7 +59,7 @@
 			<Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
             <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
             <Button Content="AddChild" Command="{Binding AddChild}"/>
-            <Button Content="AddChild" Command="{Binding Delete}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
         </StackPanel>
     </Grid>
 </UserControl>

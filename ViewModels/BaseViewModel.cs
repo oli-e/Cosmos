@@ -16,6 +16,8 @@ namespace Cosmos.ViewModels
 
         protected void OnPropertyChanged(string propertyName)
         {
+            System.Diagnostics.Debug.WriteLine($"property Changed");
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
