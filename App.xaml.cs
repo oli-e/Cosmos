@@ -1,5 +1,6 @@
 ﻿using Cosmos.Stores;
 using Cosmos.ViewModels;
+using Cosmos.ViewModels.SpecificObjectsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -34,7 +35,7 @@ namespace Cosmos
             System.Diagnostics.Debug.WriteLine(currentItemStore.CurrentItem);
 
             //initialization of view at the beginning of the application
-            navigationStore.CurrentViewModel = new SingleItemViewViewModel(dummyItemsStore,currentItemIDStore);
+            navigationStore.CurrentViewModel = new GalaxyViewModel(dummyItemsStore,currentItemIDStore.CurrentItemID);
 
             //overriding the startup of the main window
             MainWindow = new MainWindow()

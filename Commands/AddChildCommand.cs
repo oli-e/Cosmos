@@ -32,10 +32,6 @@ namespace Cosmos.Commands
                     new RightAscension(0, 0, 0),
                     StarType.SOLAR));
                 System.Diagnostics.Debug.WriteLine($"Created new Star in Galaxy");
-
-                //galaxyViewModel.CanSave = false;
-                //galaxyViewModel.CanDiscard = false;
-
             }
             if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.StarViewModel")
             {
@@ -44,9 +40,6 @@ namespace Cosmos.Commands
                     "Name",
                     new UnitValue<long>(0,Unit.KM)));
                 System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
-
-                //starViewModel.CanSave = false;
-                //starViewModel.CanDiscard = false;
             }
             if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.PlanetarySystemViewModel")
             {
@@ -61,9 +54,6 @@ namespace Cosmos.Commands
                         new Declination(0, 0, 0),
                         new RightAscension(0, 0, 0)));
                 System.Diagnostics.Debug.WriteLine($"Created new Planetary System in Star");
-
-                //starViewModel.CanSave = false;
-                //starViewModel.CanDiscard = false;
             }
         }
     }
