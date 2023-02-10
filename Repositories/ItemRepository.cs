@@ -1,4 +1,5 @@
 ﻿using Cosmos.Commands;
+using Cosmos.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,10 @@ namespace Cosmos
 
 		//To be changed
 		public IdentifableObject getItem(int id)
-        {
+		{
+			//IdentifableObject identifableObject = (IdentifableObject)galaxyDao.FindById(id);
+            //System.Diagnostics.Debug.WriteLine("Item repo determining type");
+            //System.Diagnostics.Debug.WriteLine(identifableObject.GetType());
             return (IdentifableObject) galaxyDao.FindById(id);
         }
 

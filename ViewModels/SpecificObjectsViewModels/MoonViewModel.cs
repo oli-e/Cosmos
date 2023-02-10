@@ -8,9 +8,12 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
 {
     public class MoonViewModel : BaseViewModel
     {
-        public MoonViewModel()
+        public string Name { get; set; }
+        public string Size { get; set; }
+        public MoonViewModel(Moon moon)
         {
-
+            Name = moon.Name;
+            Size = moon.Size.Get().ToString();
         }
     }
 }

@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="Name" Content="Name"/>
+                <TextBox Name="Name_Value" Text="{Binding Name,Mode=TwoWay}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Name="Size" Content="Size"/>
+                <TextBox Name="Size_Value" Text="{Binding Size}"/>
+            </StackPanel>
+            <Button Content="SaveChanges" Command="{Binding SaveCommand}"/>
+            <Button Content="Discard Changes" Command="{Binding DiscardChanges}"/>
+            <Button Content="Add Child" Command="{Binding AddChild}"/>
+            <Button Content="Delete" Command="{Binding Delete}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

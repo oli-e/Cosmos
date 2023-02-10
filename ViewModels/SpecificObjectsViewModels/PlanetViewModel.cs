@@ -8,6 +8,11 @@ namespace Cosmos.ViewModels.SpecificObjectsViewModels
 {
     public class PlanetViewModel : BaseViewModel
     {
-        public PlanetViewModel() { }
+        public string Name { get; set; }
+        public string Size { get; set; }
+        public PlanetViewModel(Planet planet) {
+            Name = planet.Name;
+            Size = planet.Size.Get().ToString();
+        }
     }
 }

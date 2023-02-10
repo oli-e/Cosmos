@@ -1,5 +1,5 @@
-﻿using Cosmos.ViewModels;
-using Cosmos.ViewModels.SpecificObjectsViewModels;
+﻿using Cosmos.ViewModels.SpecificObjectsViewModels;
+using Cosmos.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,40 +8,36 @@ using System.Threading.Tasks;
 
 namespace Cosmos.Commands
 {
-    public class SaveCommand : CommandBase
+    public class DeleteCommand : CommandBase
     {
         private BaseViewModel _baseViewModel;
-        public SaveCommand(BaseViewModel baseViewModel)
+        private ItemRepository _itemRepository;
+        public DeleteCommand(BaseViewModel baseViewModel, ItemRepository itemRepository)
         {
             _baseViewModel = baseViewModel;
+            _itemRepository = itemRepository;
             System.Diagnostics.Debug.WriteLine($"Checking Types");
             System.Diagnostics.Debug.WriteLine(baseViewModel.GetType());
         }
         public override void Execute(object parameter)
         {
-            if(_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.GalaxyViewModel")
+            if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.GalaxyViewModel")
             {
                 GalaxyViewModel galaxyViewModel = (GalaxyViewModel)_baseViewModel;
-                galaxyViewModel.Galaxy.Name = galaxyViewModel.Name;
+                _itemRepository.RemoveItem(galaxyViewModel.Galaxy.Id);
 
                 //galaxyViewModel.CanSave = false;
                 //galaxyViewModel.CanDiscard = false;
-                
+
             }
             if (_baseViewModel.GetType().ToString() == "Cosmos.ViewModels.SpecificObjectsViewModels.StarViewModel")
             {
                 StarViewModel starViewModel = (StarViewModel)_baseViewModel;
-                starViewModel.Star.Name = starViewModel.Name;
+                _itemRepository.RemoveItem(starViewModel.Star.Id);
 
                 //starViewModel.CanSave = false;
                 //starViewModel.CanDiscard = false;
             }
-
         }
-        /*public override bool CanExecute(object parameter)
-        {
-            System.Diagnostics.Debug.WriteLine($"CanSave: {_baseViewModel.CanSave}");
-            return _baseViewModel.CanSave && base.CanExecute(parameter);
-        }*/
     }
 }
