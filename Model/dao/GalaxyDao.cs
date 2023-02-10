@@ -80,6 +80,7 @@ namespace Cosmos
             catch (FileNotFoundException e)
 			{
                 // Ignore missing file
+               Console.WriteLine(e.Message);
 			}
         }
 

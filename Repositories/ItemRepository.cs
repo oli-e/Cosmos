@@ -16,7 +16,12 @@ namespace Cosmos
 		{
 			this.galaxyDao = galaxyDao;
 		}
+		
 
+		public List<Galaxy> getData()
+		{
+			return galaxyDao.GetGalaxies();
+		}
 		// TODO to be removed
 		public void Description()
 		{
