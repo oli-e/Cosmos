@@ -19,7 +19,7 @@ namespace Cosmos
 
         private GlobalIdentificatorProvider()
         {
-            
+
         }
 
         public static GlobalIdentificatorProvider GetInstance()
@@ -40,15 +40,15 @@ namespace Cosmos
         }
 
         private void InitializeIdLazily()
-		{
+        {
             if (id == 0)
-			{
+            {
                 try
-				{
+                {
                     id = dataFileSaver.LoadFromFile<long>(IDS_DATA_FILE_NAME);
                 }
                 catch (FileNotFoundException e)
-				{
+                {
                     Save();
                     id = dataFileSaver.LoadFromFile<long>(IDS_DATA_FILE_NAME);
                 }
@@ -57,7 +57,14 @@ namespace Cosmos
 
         public void Save()
         {
-            dataFileSaver.SaveToFile(id, IDS_DATA_FILE_NAME);
+            try
+            {
+                dataFileSaver.SaveToFile(id, IDS_DATA_FILE_NAME);
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
