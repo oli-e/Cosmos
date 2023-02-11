@@ -17,13 +17,13 @@
   
   - Edycja Obiektu:
     - Zmiana wartości pól obiektu
-    - Wciśnięcie przycisku SaveChanges
-    - (przycisk DiscardChanges powoduje powrót do stanu sprzed edycji)
+    - Wciśnięcie przycisku **SaveChanges**
+    - (przycisk **DiscardChanges** powoduje powrót do stanu sprzed edycji)
 
   - Tworzenie nowych obiektów:
-    - Przyciski AddChildren dodają obiekty do drzewa, tworzony jest wtedy pusty plik dodawany do drzewa.
-    - Przycisk AddGalaxy dodaje nową galaxy do drzewa (akcja jest osobna ze względu na konieczność odania do elementu "root" drzewa)
+    - Przyciski **AddChildren** dodają obiekty do drzewa, tworzony jest wtedy pusty plik dodawany do drzewa.
+    - Przycisk **AddGalaxy** dodaje nową galaxy do drzewa (akcja jest osobna ze względu na konieczność odania do elementu "root" drzewa)
     
   - Usuwanie obiektów:
-    - Przycisk Delete usuwa obecnie aktywny obiekt
+    - Przycisk **Delete** usuwa obecnie aktywny obiekt
     
